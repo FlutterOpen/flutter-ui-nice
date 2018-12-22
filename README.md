@@ -1,16 +1,6 @@
 # flutter_ui_shopping
-
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### :heart: Star :heart: the repo to support the project or :smile:[Follow Me](https://github.com/nb312).Thanks!
+The project is developing,please wait. 
+This project will comply with many people.
+If you interest in this project please let me know.[My Facebook](https://www.facebook.com/profile.php?id=100018259667795)
+<img src="doc/part3.jpg"/>
