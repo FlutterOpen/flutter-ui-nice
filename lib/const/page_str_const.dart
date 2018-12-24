@@ -1,0 +1,81 @@
+///
+/// Created by NieBin on 2018/12/24
+/// Github: https://github.com/nb312
+/// Email: niebin312@gmail.com
+///
+///
+const SIGN_UP_PAGES = [
+  "Sign up page 01",
+  "Sign up page 02",
+  "Sign up page 03",
+  "Sign up page 04",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const WALK_THROUGH_PAGES = [
+  "Walk through page 01",
+  "Walk through page 02",
+  "Walk through page 03",
+  "Walk through page 04",
+  "Walk through page 05",
+  "Walk through page 06",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const NAVIGATION_PAGES = [
+  "Navigation page 01",
+  "Navigation page 02",
+  "Navigation page 03",
+  "Navigation page 04",
+  "Navigation page 05",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const PROFILE_PAGES = [
+  "Profile page 01",
+  "Profile page 02",
+  "Profile page 03",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const FEED_PAGES = [
+  "Feed page 01",
+  "Feed page 02",
+  "Feed page 03",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const CHAT_PAGES = [
+  "Chat page 01",
+  "Chat page 02",
+  "Chat page 03",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const SHOPPING_PAGES = [
+  "Shopping page 01",
+  "Shopping page 02",
+  "Shopping page 03",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const STATISTIC_PAGES = [
+  "Statistic page 01",
+  "Statistic page 02",
+  "Statistic page 03",
+
+  /// fixme you could add by your group one name fit one page.
+];
+const MEDIA_PAGES = [
+  "Media page 01",
+  "Media page 02",
+  "Media page 03",
+
+  /// fixme you could add by your group one name fit one page.
+];
+
+const CAMERA_PAGES = [
+  "Camera page 01",
+
+  /// fixme you could add by your group one name fit one page.
+];
