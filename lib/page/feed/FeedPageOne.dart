@@ -5,19 +5,19 @@
 ///
 import "package:flutter/material.dart";
 
-class SignPageOne extends StatefulWidget {
+class FeedPageOne extends StatefulWidget {
   @override
-  _SignOneState createState() => _SignOneState();
+  _FeedState createState() => _FeedState();
 }
 
-class _SignOneState extends State<SignPageOne> {
+class _FeedState extends State<FeedPageOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign up one"),
+        title: Text("Feed one"),
       ),
-      body: Text("Sign up page one"),
+      body: Text("Feed page one"),
     );
   }
 }

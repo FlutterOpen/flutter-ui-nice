@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
         SIGN_UP_PAGES[1]: (context) => SignPageTwo(),
         //FIXME there are other pages to jump with 'page_str_const.dart',there should be make by manager
+
       },
       onUnknownRoute: (setting) =>
           MaterialPageRoute(builder: (context) => EmptyPage()),

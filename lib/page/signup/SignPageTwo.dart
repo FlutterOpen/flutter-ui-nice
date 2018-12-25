@@ -7,10 +7,10 @@ import "package:flutter/material.dart";
 
 class SignPageTwo extends StatefulWidget {
   @override
-  _EmptyState createState() => _EmptyState();
+  _SignTwoState createState() => _SignTwoState();
 }
 
-class _EmptyState extends State<SignPageTwo> {
+class _SignTwoState extends State<SignPageTwo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

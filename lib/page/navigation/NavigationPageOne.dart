@@ -5,19 +5,19 @@
 ///
 import "package:flutter/material.dart";
 
-class SignPageOne extends StatefulWidget {
+class NavigationPageOne extends StatefulWidget {
   @override
-  _SignOneState createState() => _SignOneState();
+  _NavigationState createState() => _NavigationState();
 }
 
-class _SignOneState extends State<SignPageOne> {
+class _NavigationState extends State<NavigationPageOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign up one"),
+        title: Text("Navigation one"),
       ),
-      body: Text("Sign up page one"),
+      body: Text("Navigation page one"),
     );
   }
 }
