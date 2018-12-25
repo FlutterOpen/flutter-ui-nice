@@ -4,6 +4,8 @@
 /// Email: niebin312@gmail.com
 ///
 import "package:flutter/material.dart";
+import '../../const/color_const.dart';
+import '../../const/gradient_const.dart';
 
 class SignPageOne extends StatefulWidget {
   @override
@@ -14,10 +16,14 @@ class _SignOneState extends State<SignPageOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign up one"),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: SIGNUP_BACKGROUND
+        ),
+        child: Center(
+          child: Text("Start"),
+        ),
       ),
-      body: Text("Sign up page one"),
     );
   }
 }
