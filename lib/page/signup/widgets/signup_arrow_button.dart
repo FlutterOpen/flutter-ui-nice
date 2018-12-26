@@ -25,6 +25,13 @@ class SignUpArrowButton extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: SIGNUP_CIRCLE_BUTTON_BACKGROUND,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 20,
+              offset: Offset(1.0, 9.0),
+            ),
+          ],
         ),
         child: Icon(
           icon,

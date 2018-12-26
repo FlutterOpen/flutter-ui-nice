@@ -22,18 +22,21 @@ class SignupApbar extends StatelessWidget {
             bottom: 5,
             child: SignUpArrowButton(
               icon: Icons.arrow_back,
-              iconSize: 22,
+              iconSize: 18,
               height: 40,
               width: 40,
-              onTap: () => print("Back button pressed"),
+              onTap: () => Navigator.of(context).pop(),
             ),
           ),
           Align(
             alignment: Alignment.center,
-            child: Text(title,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                )),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 45),
+              child: Text(title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                  )),
+            ),
           )
         ],
       ),
