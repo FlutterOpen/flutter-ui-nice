@@ -51,7 +51,7 @@ build/
 **/ios/**/Icon?
 **/ios/**/Pods/
 **/ios/**/.symlinks/
-**/ios/**/profile
+**/ios/**/ui.profile
 **/ios/**/xcuserdata
 **/ios/.generated/
 **/ios/Flutter/App.framework
