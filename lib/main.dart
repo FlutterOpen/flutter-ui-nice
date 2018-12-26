@@ -19,8 +19,19 @@ class MyApp extends StatelessWidget {
       routes: {
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
         SIGN_UP_PAGES[1]: (context) => SignPageTwo(),
-        //FIXME there are other pages to jump with 'page_str_const.dart',there should be make by manager
 
+        ///FEED group page
+        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[9]: (context) => FeedPageTen(),
+        FEED_PAGES[10]: (context) => FeedPageEleven(),
+        FEED_PAGES[11]: (context) => FeedPageTwelve(),
+        FEED_PAGES[12]: (context) => FeedPageThirteen(),
+        //FIXME there are other pages to jump with 'page_str_const.dart',there should be make by manager
       },
       onUnknownRoute: (setting) =>
           MaterialPageRoute(builder: (context) => EmptyPage()),
