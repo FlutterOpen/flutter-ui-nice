@@ -8,6 +8,7 @@ import 'package:flutter_ui_nice/const/gradient_const.dart';
 import 'package:flutter_ui_nice/const/images_const.dart';
 import 'package:flutter_ui_nice/const/size_const.dart';
 import 'package:flutter_ui_nice/const/string_const.dart';
+import 'package:flutter_ui_nice/page/signup/widgets/signup_arrow_button.dart';
 
 class SignPageFour extends StatefulWidget {
   @override
@@ -137,32 +138,16 @@ class _SignPageFourState extends State<SignPageFour> {
             Positioned(
               bottom: _media.height / 6.3,
               right: 15,
-              child: signUpButton(),
+              child: SignUpArrowButton(
+                icon: Icons.arrow_forward,
+                iconSize: 26,
+                onTap: () => print("Signup Tapped"),
+              ),
             ),
           ],
         ),
       ),
     ));
-  }
-
-  Widget signUpButton() {
-    return InkWell(
-      onTap: () => print("Tapped Login Button"),
-      splashColor: Colors.red,
-      child: Container(
-        height: 50,
-        width: 50,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: SIGNUP_CIRCLE_BUTTON_BACKGROUND,
-        ),
-        child: Icon(
-          Icons.arrow_forward,
-          size: 26,
-          color: Colors.white70,
-        ),
-      ),
-    );
   }
 
   Widget inputText(
