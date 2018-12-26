@@ -11,4 +11,5 @@ const BOTTOM_COLORS = [MAIN_COLOR, DARK_COLOR];
 const YELLOW = Color(0xfffbed96);
 const BLUE = Color(0xffabecd6);
 const PURPLE = Color(0xffccc3fc);
+const LIGHT_RED = Color(0xffffc2a1);
 const RED = Color(0xffffb6b3);
