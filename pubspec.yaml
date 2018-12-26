@@ -57,8 +57,10 @@ flutter:
           style: italic
         - asset: assets/fonts/montserrat/Montserrat-Light.ttf
           weight: 200
+        - asset: assets/fonts/montserrat/Montserrat-SemiBold.ttf
+          weight: 500
         - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
-          weight: 700
+          weight: 700  
 
 
   # To add assets to your application, add an assets section, like this:
