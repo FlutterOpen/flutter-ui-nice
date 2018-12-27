@@ -99,60 +99,66 @@ class _SignPageThreeState extends State<SignPageThree> {
                           ),
 
                         ),
-                        Opacity(
-                          opacity: 0.6,
-                          child: new Container(
-                            height: _media.height/1.7-20,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 15,
-                                  spreadRadius: 8,
-                                ),
-                              ],
+                        Flexible(
+                          child: Opacity(
+                            opacity: 0.6,
+                            child: new Container(
+                              height: _media.height/1.7-20,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 15,
+                                    spreadRadius: 8,
+                                  ),
+                                ],
 
+                              ),
                             ),
                           ),
                         ),
-                        Opacity(
-                          opacity: 0.4,
-                          child: new Container(
-                            height: _media.height/1.7-40,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 15,
-                                  spreadRadius: 8,
-                                ),
-                              ],
+                        Flexible(
+                          child: Opacity(
+                            opacity: 0.4,
+                            child: new Container(
+                              height: _media.height/1.7-40,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 15,
+                                    spreadRadius: 8,
+                                  ),
+                                ],
 
+                              ),
                             ),
                           ),
                         ),
-                        Opacity(
-                          opacity: 0.2,
-                          child: new Container(
-                            height: _media.height/1.7-60,
-                            width: 25,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 15,
-                                  spreadRadius: 8,
-                                ),
-                              ],
+                        Flexible(
+                          child: Opacity(
+                            opacity: 0.2,
+                            child: new Container(
+                              height: _media.height/1.7-60,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(15),bottomRight: Radius.circular(15)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 15,
+                                    spreadRadius: 8,
+                                  ),
+                                ],
 
+                              ),
                             ),
                           ),
                         )
