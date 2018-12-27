@@ -139,8 +139,8 @@ class _SignPageFourState extends State<SignPageFour> {
               bottom: _media.height / 6.3,
               right: 15,
               child: SignUpArrowButton(
-                icon: Icons.arrow_forward,
-                iconSize: 26,
+                icon: IconData(0xe901, fontFamily: 'Icons'),
+                iconSize: 9,
                 onTap: () => print("Signup Tapped"),
               ),
             ),

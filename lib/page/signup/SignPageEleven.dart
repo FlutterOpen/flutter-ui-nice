@@ -11,6 +11,32 @@ class SignPageEleven extends StatefulWidget {
 }
 
 class _SignPageElevenState extends State<SignPageEleven> {
+  String _currentDate = 'Select Date';
+  List _locations = ["Istanbul", "Frankfurt", "Barcelona", "Shangay"];
+  String _currentLocation = "Frankfurt";
+  TextEditingController _controller = TextEditingController();
+
+  void changeDropDownLocationItem(String selectedLocation) {
+    setState(() {
+      _currentLocation = selectedLocation;
+    });
+  }
+
+  Future _selectDate() async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2016),
+        lastDate: new DateTime(2019));
+    if (picked != null)
+      setState(
+        () => _currentDate = picked.toString(),
+      );
+  }
+
+  bool _male = true;
+  bool _famele = false;
+
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
@@ -47,7 +73,7 @@ class _SignPageElevenState extends State<SignPageEleven> {
                 SignUpArrowButton(
                   height: 70,
                   width: 70,
-                  icon: Icons.add,
+                  icon: IconData(0xe903, fontFamily: 'Icons'),
                   iconSize: 30,
                 ),
                 SizedBox(
@@ -62,14 +88,16 @@ class _SignPageElevenState extends State<SignPageEleven> {
                 SizedBox(
                   height: 40,
                 ),
-                colorBox(SIGNUP_BACKGROUND, "BIRTHDAY", "29 Oct 1982", ""),
+                dateColorBox(
+                    SIGNUP_BACKGROUND, "BIRTHDAY", _currentDate, _selectDate),
                 shadowColorBox(
                     SIGNUP_CARD_BACKGROUND, "GENDER", "Male", "Famale"),
                 Wrap(children: <Widget>[
-                  colorBox(
-                      SIGNUP_BACKGROUND, "LOCATION", "Frankfurt am Main", ""),
+                  locationColorBox(
+                      SIGNUP_BACKGROUND, "LOCATION", _currentLocation),
                 ]),
-                colorBox(SIGNUP_BACKGROUND, "USERNAME", "hitatal123", ""),
+                fieldColorBox(
+                    SIGNUP_BACKGROUND, "USERNAME", "hitatal123", _controller),
                 SizedBox(
                   height: 30,
                 ),
@@ -82,8 +110,69 @@ class _SignPageElevenState extends State<SignPageEleven> {
     );
   }
 
+  Widget locationColorBox(
+      Gradient gradient, String title, String currentLocation) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 30.0,
+        right: 30,
+        bottom: 8,
+      ),
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 30,
+              offset: Offset(1.0, 9.0),
+            ),
+          ],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              width: 30,
+            ),
+            Expanded(
+              flex: 3,
+              child: Text(
+                title,
+                style: TextStyle(fontSize: TEXT_SMALL_SIZE, color: Colors.grey),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: DropdownButton<String>(
+                isDense: true,
+                style: TextStyle(
+                  fontSize: TEXT_NORMAL_SIZE,
+                  color: Colors.black,
+                ),
+                isExpanded: true,
+                onChanged: changeDropDownLocationItem,
+                items: _locations.map((items) {
+                  return DropdownMenuItem<String>(
+                    value: items,
+                    child: Text(
+                      items,
+                    ),
+                  );
+                }).toList(),
+                value: currentLocation,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget shadowColorBox(
-      Gradient gradient, String title, String data, String gender) {
+      Gradient gradient, String title, String male, String famale) {
     return Padding(
       padding: const EdgeInsets.only(
         left: 30.0,
@@ -120,26 +209,42 @@ class _SignPageElevenState extends State<SignPageEleven> {
               flex: 2,
               child: Wrap(
                 children: <Widget>[
-                  Text(
-                    data,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    child: Text(
+                      male,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: _male ? Colors.black : Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
+                    onTap: () {
+                      setState(() {
+                        _famele = false;
+                        _male = true;
+                      });
+                    },
                   ),
                   SizedBox(
                     width: 15,
                   ),
-                  Text(
-                    gender,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    child: Text(
+                      famale,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: _famele ? Colors.black : Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
+                    onTap: () {
+                      setState(() {
+                        _famele = true;
+                        _male = false;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -150,7 +255,63 @@ class _SignPageElevenState extends State<SignPageEleven> {
     );
   }
 
-  Widget colorBox(Gradient gradient, String title, String data, String gender) {
+  Widget fieldColorBox(Gradient gradient, String title, String text,
+      TextEditingController controller) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 30.0,
+        right: 30,
+        bottom: 8,
+      ),
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 30,
+              offset: Offset(1.0, 9.0),
+            ),
+          ],
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              width: 30,
+            ),
+            Expanded(
+              flex: 3,
+              child: Text(
+                title,
+                style: TextStyle(fontSize: TEXT_SMALL_SIZE, color: Colors.grey),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Wrap(
+                children: <Widget>[
+                  TextField(
+                    controller: controller,
+                    decoration: InputDecoration(
+                        hintText: text,
+                        border: InputBorder.none,
+                        hintStyle: TextStyle(
+                            fontSize: TEXT_NORMAL_SIZE, color: Colors.black)),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget dateColorBox(
+      Gradient gradient, String title, String data, Function function) {
     return Padding(
       padding: const EdgeInsets.only(
         left: 30.0,
@@ -180,26 +341,17 @@ class _SignPageElevenState extends State<SignPageEleven> {
               flex: 2,
               child: Wrap(
                 children: <Widget>[
-                  Text(
-                    data,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    child: Text(
+                      data,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    gender,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    overflow: TextOverflow.ellipsis,
+                    onTap: function,
                   ),
                 ],
               ),
@@ -229,6 +381,7 @@ class _SignPageElevenState extends State<SignPageEleven> {
           ),
         ),
       ),
+      onTap: () => debugPrint("Next tapped"),
     );
   }
 }

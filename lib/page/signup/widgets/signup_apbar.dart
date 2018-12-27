@@ -21,8 +21,8 @@ class SignupApbar extends StatelessWidget {
             left: 15,
             bottom: 5,
             child: SignUpArrowButton(
-              icon: Icons.arrow_back,
-              iconSize: 18,
+              icon: IconData(0xe900, fontFamily: 'Icons'),
+              iconSize: 9,
               height: 40,
               width: 40,
               onTap: () => Navigator.of(context).pop(),
