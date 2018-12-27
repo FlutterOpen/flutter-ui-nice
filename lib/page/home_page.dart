@@ -11,6 +11,7 @@ import 'package:flutter_ui_nice/view/AboutMeTitle.dart';
 import 'package:flutter_ui_nice/const/size_const.dart';
 import 'package:flutter_ui_nice/const/images_const.dart';
 import 'package:flutter_ui_nice/const/color_const.dart';
+import 'package:flutter_ui_nice/util/SizeUtil.dart';
 
 class HomePage extends StatelessWidget {
   final _scaffoldState = GlobalKey<ScaffoldState>();
@@ -240,6 +241,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeUtil.size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
+    print("width :${size.width},height:${size.height}");
     return _showAndroid(context);
   }
 }
