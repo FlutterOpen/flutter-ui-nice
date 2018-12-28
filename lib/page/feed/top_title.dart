@@ -9,6 +9,13 @@ import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/util/SizeUtil.dart';
 
 class TopTitleBar extends StatelessWidget {
+  TopTitleBar(
+      {this.leftImage = FeedImage.more_circle,
+      this.rightImage = FeedImage.search_circle});
+
+  final String leftImage;
+  final String rightImage;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,10 +47,10 @@ class TopTitleBar extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Image.asset(FeedImage.more_circle,
+                  Image.asset(leftImage,
                       width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
                       height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT)),
-                  Image.asset(FeedImage.search_circle,
+                  Image.asset(rightImage,
                       width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
                       height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT))
                 ]),
