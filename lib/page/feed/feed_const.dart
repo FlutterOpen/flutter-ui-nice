@@ -33,4 +33,12 @@ class FeedImage {
   static const feed12_pic2 = "$IMAGE_PATH/feed12_pic2.png";
   static const feed12_header = "$IMAGE_PATH/feed12_header.png";
   static const feed12_plus = "$IMAGE_PATH/feed12_plus.png";
+  static const feed13_header1 = "$IMAGE_PATH/feed13_header1.png";
+  static const feed13_header2 = "$IMAGE_PATH/feed13_header2.png";
+  static const feed13_header3 = "$IMAGE_PATH/feed13_header3.png";
+
+  static const feed13_pic1 = "$IMAGE_PATH/feed13_pic1.png";
+  static const feed13_pic2 = "$IMAGE_PATH/feed13_pic2.png";
+  static const feed13_pic3 = "$IMAGE_PATH/feed13_pic3.png";
+  static const feed13_pic4 = "$IMAGE_PATH/feed13_pic4.png";
 }

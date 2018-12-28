@@ -4,6 +4,7 @@
 /// Email: niebin312@gmail.com
 ///
 import "package:flutter/material.dart";
+import 'top_title.dart';
 
 class FeedPageThirteen extends StatefulWidget {
   @override
@@ -14,10 +15,11 @@ class _FeedState extends State<FeedPageThirteen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Feed Thirteen"),
+      body: Container(
+        child: Column(
+          children: <Widget>[],
+        ),
       ),
-      body: Text("Feed page Thirteen"),
     );
   }
 }
