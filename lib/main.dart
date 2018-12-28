@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_nice/page/page_const.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageFour.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageEleven.dart';
+import 'package:flutter_ui_nice/page/signup/SignPageSix.dart';
 import 'const/string_const.dart';
 import 'const/color_const.dart';
 import 'const/page_str_const.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         //SIGN_UP_PAGES[2]: (context) => SignPageThird(),
         SIGN_UP_PAGES[3]: (context) => SignPageFour(),
         SIGN_UP_PAGES[4]: (context) => SignPageFour(),
-        SIGN_UP_PAGES[5]: (context) => SignPageFour(),
+        SIGN_UP_PAGES[5]: (context) => SignPageSix(),
         SIGN_UP_PAGES[6]: (context) => SignPageFour(),
         SIGN_UP_PAGES[7]: (context) => SignPageFour(),
         SIGN_UP_PAGES[8]: (context) => SignPageFour(),
