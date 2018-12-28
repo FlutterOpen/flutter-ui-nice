@@ -23,15 +23,15 @@ class ImagePath {
 class MainImagePath {
   static const String image_path = "images/main";
   static const String image_app = "$image_path/ic_launcher.png";
-  static const String image_header= "$image_path/main_background.png";
-  static const String image_sign_up = "$image_path/main_background.png";
-  static const String image_walk_through = "$image_path/main_background.png";
-  static const String image_navigation = "$image_path/main_background.png";
-  static const String image_profile = "$image_path/main_background.png";
-  static const String image_feed = "$image_path/main_background.png";
-  static const String image_chat = "$image_path/main_background.png";
-  static const String image_shopping = "$image_path/main_background.png";
-  static const String image_statistic = "$image_path/main_background.png";
-  static const String image_media = "$image_path/main_background.png";
-  static const String image_camera = "$image_path/main_background.png";
+  static const String image_header = "$image_path/pic04.png";
+  static const String image_sign_up = "$image_path/pic03.png";
+  static const String image_walk_through = "$image_path/pic01.png";
+  static const String image_navigation = "$image_path/pic05.png";
+  static const String image_profile = "$image_path/pic06.png";
+  static const String image_feed = "$image_path/pic02.png";
+  static const String image_chat = "$image_path/pic08.png";
+  static const String image_shopping = "$image_path/pic09.png";
+  static const String image_statistic = "$image_path/pic10.png";
+  static const String image_media = "$image_path/pic11.png";
+  static const String image_camera = "$image_path/pic01.png";
 }

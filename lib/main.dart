@@ -4,6 +4,7 @@ import 'const/string_const.dart';
 import 'const/color_const.dart';
 import 'const/page_str_const.dart';
 import "page/page_const.dart";
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
       title: StringConst.APP_NAME,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: MAIN_COLOR, accentColor: MAIN_COLOR),
+      theme: ThemeData(primaryColor: BLUE, accentColor: TEXT_BLACK_LIGHT),
       home: HomePage(),
       routes: {
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
