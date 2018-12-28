@@ -15,9 +15,14 @@ class FeedPageTwelve extends StatefulWidget {
 }
 
 class _FeedState extends State<FeedPageTwelve> {
-  Widget _textBack(content, {size = TEXT_SMALL_2_SIZE, isBold = false}) => Text(
+  Widget _textBack(content,
+          {color = TEXT_BLACK_LIGHT,
+          size = TEXT_SMALL_2_SIZE,
+          isBold = false}) =>
+      Text(
         content,
         style: TextStyle(
+            color: color,
             fontSize: SizeUtil.getAxisBoth(size),
             fontWeight: isBold ? FontWeight.w700 : null),
       );
@@ -42,7 +47,7 @@ class _FeedState extends State<FeedPageTwelve> {
           Icon(
             icon,
             size: SizeUtil.getAxisBoth(30.0),
-            color: TEXT_BLACK,
+            color: TEXT_BLACK_LIGHT,
           ),
           SizedBox(height: SizeUtil.getAxisY(26.0)),
           _textBack(value)

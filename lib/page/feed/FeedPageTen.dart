@@ -101,7 +101,7 @@ class _FeedState extends State<FeedPageTen> {
                       "added 127 new photos to the Lorem Ipsum dolr sit amet.")
             ],
             style: TextStyle(
-              color: TEXT_BLACK,
+              color: TEXT_BLACK_LIGHT,
               fontSize: SizeUtil.getAxisBoth(TEXT_NORMAL_SIZE),
             ),
           ),
@@ -114,7 +114,7 @@ class _FeedState extends State<FeedPageTen> {
         child: Text(
           "1 MINUTE",
           style: TextStyle(
-              color: TEXT_BLACK,
+              color: TEXT_BLACK_LIGHT,
               fontSize: SizeUtil.getAxisBoth(TEXT_SMALL_SIZE)),
         ),
       );
@@ -138,7 +138,7 @@ class _FeedState extends State<FeedPageTen> {
               child: Text(
                 "LOREM IPSUM",
                 style: TextStyle(
-                    color: TEXT_BLACK,
+                    color: TEXT_BLACK_LIGHT,
                     fontSize: SizeUtil.getAxisBoth(TEXT_LARGE_SIZE),
                     fontWeight: FontWeight.w700),
               ),
@@ -152,7 +152,7 @@ class _FeedState extends State<FeedPageTen> {
               child: Text(
                 "Cras quis nulla com, aliquam lectus sed, blandit augue. Duis tincidunt urna non pretium",
                 style: TextStyle(
-                  color: TEXT_BLACK,
+                  color: TEXT_BLACK_LIGHT,
                   fontSize: SizeUtil.getAxisBoth(TEXT_NORMAL_SIZE),
                 ),
               ),
