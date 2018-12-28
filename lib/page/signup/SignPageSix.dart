@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/const/gradient_const.dart';
 import 'package:flutter_ui_nice/const/images_const.dart';
-import 'package:flutter_ui_nice/const/size_const.dart';
-import 'package:flutter_ui_nice/const/styles.dart';
 import 'package:flutter_ui_nice/page/signup/widgets/signup_arrow_button.dart';
 
 class SignPageSix extends StatefulWidget {
@@ -46,7 +44,7 @@ class _SignPageSixState extends State<SignPageSix> {
                   ],
                 ),
                 _media.height,
-                _media.width / 2,
+                198,
                 () => debugPrint("Google Plus Clicked"),
               ),
               colorContainer(
@@ -62,7 +60,7 @@ class _SignPageSixState extends State<SignPageSix> {
                   ],
                 ),
                 _media.height / 2 + 270,
-                _media.width / 2 - 50,
+                148,
                 () => debugPrint("Twitter Clicked"),
               ),
               colorContainer(
@@ -78,7 +76,7 @@ class _SignPageSixState extends State<SignPageSix> {
                   ],
                 ),
                 _media.height / 2 + 195,
-                58.0,
+                98.0,
                 () => debugPrint("Facebook Clicked"),
               ),
               colorContainer(
@@ -94,7 +92,7 @@ class _SignPageSixState extends State<SignPageSix> {
                   ],
                 ),
                 _media.height / 2 + 120,
-                28,
+                48,
                 () => debugPrint("Sign Up Clicked"),
               ),
               Stack(
@@ -226,9 +224,7 @@ class _SignPageSixState extends State<SignPageSix> {
     return Padding(
       padding: EdgeInsets.only(right: rightPadding),
       child: InkResponse(
-        splashColor: Colors.red,
-        highlightColor: Colors.red,
-        highlightShape: BoxShape.circle,
+        highlightShape: BoxShape.rectangle,
         onTap: onTap,
         child: Container(
           alignment: Alignment.bottomLeft,
