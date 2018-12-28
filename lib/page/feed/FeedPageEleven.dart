@@ -29,9 +29,14 @@ class _FeedState extends State<FeedPageEleven>
     });
   }
 
-  Widget _textBack(content, {size = TEXT_SMALL_2_SIZE, isBold = false}) => Text(
+  Widget _textBack(content,
+          {color = TEXT_BLACK_LIGHT,
+          size = TEXT_SMALL_2_SIZE,
+          isBold = false}) =>
+      Text(
         content,
         style: TextStyle(
+            color: color,
             fontSize: SizeUtil.getAxisBoth(size),
             fontWeight: isBold ? FontWeight.w700 : null),
       );

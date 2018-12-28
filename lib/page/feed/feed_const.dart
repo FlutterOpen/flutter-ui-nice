@@ -34,12 +34,15 @@ class FeedImage {
   static const feed12_pic2 = "$IMAGE_PATH/feed12_pic2.png";
   static const feed12_header = "$IMAGE_PATH/feed12_header.png";
   static const feed12_plus = "$IMAGE_PATH/feed12_plus.png";
+
   //Images for Feed1
   static const feed1_avatar1 = "$IMAGE_PATH/feed1_avatar1.png";
   static const feed1_avatar2 = "$IMAGE_PATH/feed1_avatar2.png";
   static const landscape = "$IMAGE_PATH/landscape.png";
   static const menonglass = "$IMAGE_PATH/menonglass.png";
   static const night = "$IMAGE_PATH/night.png";
+
+  //feed 13
   static const feed13_header1 = "$IMAGE_PATH/feed13_header1.png";
   static const feed13_header2 = "$IMAGE_PATH/feed13_header2.png";
   static const feed13_header3 = "$IMAGE_PATH/feed13_header3.png";
