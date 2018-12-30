@@ -42,6 +42,16 @@ const FEED_PAGES = [
   "Feed page 01",
   "Feed page 02",
   "Feed page 03",
+  "Feed page 04",
+  "Feed page 05",
+  "Feed page 06",
+  "Feed page 07",
+  "Feed page 08",
+  "Feed page 09",
+  "Feed page 10",
+  "Feed page 11",
+  "Feed page 12",
+  "Feed page 13",
 
   /// fixme you could add by your group one name fit one page.
 ];

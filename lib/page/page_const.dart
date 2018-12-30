@@ -7,3 +7,9 @@ export "home_page.dart";
 export "empty_page.dart";
 export 'signup/SignPageOne.dart';
 export 'signup/SignPageTwo.dart';
+
+export 'feed/FeedPageOne.dart';
+export 'feed/FeedPageTen.dart';
+export 'feed/FeedPageEleven.dart';
+export 'feed/FeedPageTwelve.dart';
+export 'feed/FeedPageThirteen.dart';
