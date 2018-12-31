@@ -24,11 +24,11 @@ class _SignPageSixState extends State<SignPageSix>
   void initState() {
     super.initState();
 
-    duration = new Duration(milliseconds: 600);
+    duration = new Duration(milliseconds: 400);
 
     _controller1 = new AnimationController(vsync: this, duration: duration);
     _controller2 = new AnimationController(
-        vsync: this, duration: Duration(milliseconds: 300));
+        vsync: this, duration: Duration(milliseconds: 200));
     _controller3 = new AnimationController(
         vsync: this, duration: Duration(microseconds: 0));
 
@@ -276,7 +276,7 @@ class _SignPageSixState extends State<SignPageSix>
             ),
           ),
           Text(
-            'Sing in',
+            'Sign in',
             style: TextStyle(
                 fontFamily: "Montserrat",
                 fontWeight: FontWeight.w200,
@@ -288,6 +288,9 @@ class _SignPageSixState extends State<SignPageSix>
                 fontFamily: "Montserrat",
                 fontWeight: FontWeight.w200,
                 fontSize: 35),
+          ),
+          SizedBox(
+            height: 10,
           ),
           emailTextFieldWidget(),
           SizedBox(
@@ -428,9 +431,13 @@ class _SignPageSixState extends State<SignPageSix>
               color: Color(0xff35AA90), size: 10.0),
         ),
         hintText: 'Email',
+        labelStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 14,
+        ),
         hintStyle: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
         ),
         border: InputBorder.none,
       ),
@@ -442,9 +449,13 @@ class _SignPageSixState extends State<SignPageSix>
       controller: _password,
       decoration: new InputDecoration(
         hintText: 'Password',
-        hintStyle: TextStyle(
-          fontSize: 12,
+        labelStyle: TextStyle(
           fontWeight: FontWeight.w600,
+          fontSize: 14,
+        ),
+        hintStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
         ),
         border: InputBorder.none,
       ),
