@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         FEED_PAGES[0]: (context) => FeedPageOne(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
-        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[3]: (context) => FeedPageFour(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
         FEED_PAGES[9]: (context) => FeedPageTen(),
