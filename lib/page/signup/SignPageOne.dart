@@ -69,6 +69,7 @@ Widget passwordTextFieldWidget() {
     margin: EdgeInsets.only(left: 32.0, right: 16.0),
     child: TextField(
       style: hintAndValueStyle,
+      obscureText: true,
       decoration: new InputDecoration(
           fillColor: Color(0x3305756D),
           filled: true,
