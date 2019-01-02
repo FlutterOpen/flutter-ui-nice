@@ -24,6 +24,8 @@ class SignPageNineState extends State<SignPageNine> {
 
   @override
   Widget build(BuildContext context) {
+    final double statusbarHeight = MediaQuery.of(context).padding.top;
+
     // TODO: implement build
     return Scaffold(
       appBar: SignupApbar(
@@ -32,7 +34,7 @@ class SignPageNineState extends State<SignPageNine> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height - kToolbarHeight - statusbarHeight,
           decoration: BoxDecoration(gradient: SIGNUP_BACKGROUND),
           child: Align(
             alignment: Alignment.topCenter,
@@ -64,7 +66,7 @@ class SignPageNineState extends State<SignPageNine> {
                           ])),
                   child: Container(
                     margin:
-                        EdgeInsets.only(top: 180.0, left: 24.0, right: 24.0),
+                        EdgeInsets.only(top: 180.0, left: 24.0, right: 24.0, bottom: 16.0),
                     child: ListView(
                       shrinkWrap: true,
                       children: <Widget>[
