@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_nice/const/gradient_const.dart';
 
 class SignUpArrowButton extends StatelessWidget {
   final IconData icon;
@@ -24,14 +23,22 @@ class SignUpArrowButton extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          gradient: SIGNUP_CIRCLE_BUTTON_BACKGROUND,
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
-              blurRadius: 8,
-              offset: Offset(1.0, 9.0),
-            ),
+                color: Colors.black12,
+                blurRadius: 15,
+                spreadRadius: 0,
+                offset: Offset(0.0, 16.0)),
           ],
+          gradient: LinearGradient(begin: FractionalOffset.centerLeft,
+// Add one stop for each color. Stops should increase from 0 to 1
+              stops: [
+                0.2,
+                1
+              ], colors: [
+            Color(0xff000000),
+            Color(0xff434343),
+          ]),
         ),
         child: Icon(
           icon,

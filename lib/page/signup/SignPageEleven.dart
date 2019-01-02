@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/const/gradient_const.dart';
 import 'package:flutter_ui_nice/const/images_const.dart';
@@ -42,6 +43,9 @@ class _SignPageElevenState extends State<SignPageEleven> {
     final _media = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: SignupApbar(
+        title: "CREATE ACCOUNT",
+      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Stack(
@@ -60,13 +64,6 @@ class _SignPageElevenState extends State<SignPageEleven> {
             ),
             Column(
               children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    SignupApbar(
-                      title: "CREATE ACCOUNT",
-                    )
-                  ],
-                ),
                 SizedBox(
                   height: 30,
                 ),
@@ -341,7 +338,7 @@ class _SignPageElevenState extends State<SignPageEleven> {
               flex: 2,
               child: Wrap(
                 children: <Widget>[
-                  GestureDetector(
+                  FlatButton(
                     child: Text(
                       data,
                       style: TextStyle(
@@ -351,7 +348,7 @@ class _SignPageElevenState extends State<SignPageEleven> {
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onTap: function,
+                    onPressed: function,
                   ),
                 ],
               ),
