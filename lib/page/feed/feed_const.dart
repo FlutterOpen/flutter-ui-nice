@@ -9,6 +9,7 @@ class FeedStringConst {
 }
 
 const CIRCLE_BUTTON_HEIGHT = 87.0;
+const SQUARE_BUTTON_HEIGHT = 117.0;
 const TOP_BAR_HEIGHT = 152.0;
 const TOP_BAR_GRADIENT_HEIGHT = 133.0;
 
