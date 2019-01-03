@@ -38,7 +38,7 @@ class _SignPageEightState extends State<SignPageEight> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 28.0, horizontal: 30),
           child: Text(
-            "GOOGLE PLUS",
+            "TWITTER",
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
           ),
         ),
@@ -51,7 +51,7 @@ class _SignPageEightState extends State<SignPageEight> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 28.0, horizontal: 30),
           child: Text(
-            "GOOGLE PLUS",
+            "FACEBOOK",
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
           ),
         ),
@@ -171,10 +171,10 @@ class _SignPageEightState extends State<SignPageEight> {
                       height: _media.height / 2 - 44,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          begin: FractionalOffset.topCenter,
-                          end: FractionalOffset.bottomCenter,
+                          begin: FractionalOffset.topRight,
+                          end: FractionalOffset.bottomRight,
 // Add one stop for each color. Stops should increase from 0 to 1
-                          stops: [0.5, 1],
+                          stops: [0.3, 1],
                           colors: [
                             Colors.transparent,
                             Colors.black12,
