@@ -1,18 +1,13 @@
-///
-/// Created by NieBin on 18-12-24
-/// Github: https://github.com/nb312
-/// Email: niebin312@gmail.com
-///
 import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
 import 'package:flutter_ui_nice/const/color_const.dart';
 
-class EmptyPage extends StatefulWidget {
+class ShopPageNineteen extends StatefulWidget {
   @override
-  _EmptyState createState() => _EmptyState();
+  _ShopNineteenState createState() => _ShopNineteenState();
 }
 
-class _EmptyState extends State<EmptyPage> {
+class _ShopNineteenState extends State<ShopPageNineteen> {
   Widget _backButton() {
     return Container(
       margin: EdgeInsets.only(left: 15, top: 20),

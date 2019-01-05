@@ -1,18 +1,13 @@
-///
-/// Created by NieBin on 18-12-24
-/// Github: https://github.com/nb312
-/// Email: niebin312@gmail.com
-///
 import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
 import 'package:flutter_ui_nice/const/color_const.dart';
 
-class EmptyPage extends StatefulWidget {
+class ShopPageEighteen extends StatefulWidget {
   @override
-  _EmptyState createState() => _EmptyState();
+  _ShopEighteenState createState() => _ShopEighteenState();
 }
 
-class _EmptyState extends State<EmptyPage> {
+class _ShopEighteenState extends State<ShopPageEighteen> {
   Widget _backButton() {
     return Container(
       margin: EdgeInsets.only(left: 15, top: 20),
@@ -46,7 +41,7 @@ class _EmptyState extends State<EmptyPage> {
     "images/shopping/apple_pay.png"
   ];
 
-  Widget FloatingTextFieldWidget(name, topmargin) {
+  Widget floatingTextFieldWidget(name, topmargin) {
     return new Container(
       padding: EdgeInsets.only(left: 5, right: 5),
       margin: EdgeInsets.only(top: topmargin, left: 10, right: 10),
@@ -203,16 +198,16 @@ class _EmptyState extends State<EmptyPage> {
             margin: EdgeInsets.only(left: 20, right: 20),
             child: Column(
               children: <Widget>[
-                FloatingTextFieldWidget("Card Number", 10.0),
-                FloatingTextFieldWidget("Name", 10.0),
+                floatingTextFieldWidget("Card Number", 10.0),
+                floatingTextFieldWidget("Name", 10.0),
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: FloatingTextFieldWidget("Exp Date", 10.0),
+                      child: floatingTextFieldWidget("Exp Date", 10.0),
                       flex: 2,
                     ),
                     Expanded(
-                      child: FloatingTextFieldWidget("CVV", 10.0),
+                      child: floatingTextFieldWidget("CVV", 10.0),
                       flex: 1,
                     )
                   ],

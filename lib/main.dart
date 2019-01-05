@@ -33,6 +33,8 @@ class MyApp extends StatelessWidget {
         FEED_PAGES[10]: (context) => FeedPageEleven(),
         FEED_PAGES[11]: (context) => FeedPageTwelve(),
         FEED_PAGES[12]: (context) => FeedPageThirteen(),
+        SHOPPING_PAGES[17]: (context) => ShopPageEighteen(),
+        SHOPPING_PAGES[18]: (context) => ShopPageNineteen(),
         //FIXME there are other pages to jump with 'page_str_const.dart',there should be make by manager
       },
       onUnknownRoute: (setting) =>
