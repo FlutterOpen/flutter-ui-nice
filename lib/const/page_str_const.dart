@@ -66,7 +66,8 @@ const SHOPPING_PAGES = [
   "Shopping page 01",
   "Shopping page 02",
   "Shopping page 03",
-
+  "Shopping page 18",
+  "Shopping page 19",
   /// fixme you could add by your group one name fit one page.
 ];
 const STATISTIC_PAGES = [
