@@ -113,108 +113,115 @@ class _EmptyState extends State<EmptyPage> {
                   children: <Widget>[
                     Expanded(
                       child: Stack(
-                        fit:StackFit.expand,
-                        alignment: Alignment.center,
-                         children: <Widget>[
-                        Opacity(
-                          opacity: 0.5,
-                        child:Image.asset("images/shopping/background.jpg",fit: BoxFit.cover,),
-                        ),
-                        Container(
-                          color: Color.fromRGBO(168, 203, 253,0.4),
-                        ),
-                        ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 3,
-                          itemBuilder:
-                              (BuildContext context, int currentcardindex){
-                            return InkWell(
-                              onTap: () {
-                                print("Card Tapped:" +
-                                    currentcardindex.toString());
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(20),
-                                width: MediaQuery.of(context).size.width / 1.2,
-                                margin: EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        colors: savedcards[currentcardindex]),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Column(  //card design
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Container(
-                                        alignment: FractionalOffset.topLeft,
-                                        child: Switch(
-                                          value: true,
-                                          onChanged: (bool status) {
-                                            print("Switch is" +
-                                                status.toString());
-                                          },
-                                        ),
-                                      ),
-                                      flex: 2,
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Container(
-                                            child: Text(
-                                              "**** **** 9012",
-                                            ),
-                                            alignment:
-                                                FractionalOffset.bottomCenter,
-                                          ),
-                                        ],
-                                      ),
-                                      flex: 1,
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        children: <Widget>[
-                                          Expanded(
-                                            child: Text(
-                                                cardname[currentcardindex]
-                                                    .toString()),
-                                            flex: 4,
-                                          ),
-                                          Expanded(
-                                            child: Container(),
-                                            flex: 3,
-                                          ),
-                                          Expanded(
-                                            child: Text("08/23"),
-                                            flex: 2,
-                                          )
-                                        ],
-                                      ),
-                                      flex: 1,
-                                    )
-                                  ],
-                                ),
+                          fit: StackFit.expand,
+                          alignment: Alignment.center,
+                          children: <Widget>[
+                            Opacity(
+                              opacity: 0.5,
+                              child: Image.asset(
+                                "images/shopping/background.jpg",
+                                fit: BoxFit.cover,
                               ),
-                            );
-                          },
-                        ),
-                      ]),
+                            ),
+                            Container(
+                              color: Color.fromRGBO(168, 203, 253, 0.4),
+                            ),
+                            ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 3,
+                              itemBuilder:
+                                  (BuildContext context, int currentcardindex) {
+                                return InkWell(
+                                  onTap: () {
+                                    print("Card Tapped:" +
+                                        currentcardindex.toString());
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.all(20),
+                                    width:
+                                        MediaQuery.of(context).size.width / 1.2,
+                                    margin: EdgeInsets.all(20),
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                            colors:
+                                                savedcards[currentcardindex]),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Column(
+                                      //card design
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Container(
+                                            alignment: FractionalOffset.topLeft,
+                                            child: Switch(
+                                              value: true,
+                                              onChanged: (bool status) {
+                                                print("Switch is" +
+                                                    status.toString());
+                                              },
+                                            ),
+                                          ),
+                                          flex: 2,
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: <Widget>[
+                                              Container(
+                                                child: Text(
+                                                  "**** **** 9012",
+                                                ),
+                                                alignment: FractionalOffset
+                                                    .bottomCenter,
+                                              ),
+                                            ],
+                                          ),
+                                          flex: 1,
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            children: <Widget>[
+                                              Expanded(
+                                                child: Text(
+                                                    cardname[currentcardindex]
+                                                        .toString()),
+                                                flex: 4,
+                                              ),
+                                              Expanded(
+                                                child: Container(),
+                                                flex: 3,
+                                              ),
+                                              Expanded(
+                                                child: Text("08/23"),
+                                                flex: 2,
+                                              )
+                                            ],
+                                          ),
+                                          flex: 1,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ]),
                       flex: 4,
                     ),
-                    Expanded( //formfields
+                    Expanded(
+                      //formfields
                       child: Container(
-                        margin: EdgeInsets.only(left: 20,right: 20,top: 10),
+                        margin: EdgeInsets.only(left: 20, right: 20, top: 10),
                         child: SingleChildScrollView(
-                          child:Column(
+                            child: Column(
                           children: <Widget>[
                             textfield("Name on the Card"),
                             textfield("Card Number"),
                             textfield("Expiration Date"),
                             textfield("CVV")
                           ],
-                        )
-                        ),
+                        )),
                       ),
                       flex: 5,
                     ),
@@ -247,5 +254,3 @@ class _EmptyState extends State<EmptyPage> {
     ));
   }
 }
-
-
