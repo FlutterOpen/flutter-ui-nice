@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_nice/page/signup/widgets/signup_apbar.dart';
 import '../../const/gradient_const.dart';
@@ -34,7 +36,9 @@ class SignPageNineState extends State<SignPageNine> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          height: MediaQuery.of(context).size.height - kToolbarHeight - statusbarHeight,
+          height: MediaQuery.of(context).size.height -
+              kToolbarHeight -
+              statusbarHeight,
           decoration: BoxDecoration(gradient: SIGNUP_BACKGROUND),
           child: Align(
             alignment: Alignment.topCenter,
@@ -65,8 +69,8 @@ class SignPageNineState extends State<SignPageNine> {
                             Color(0xffFFAFBD),
                           ])),
                   child: Container(
-                    margin:
-                        EdgeInsets.only(top: 180.0, left: 24.0, right: 24.0, bottom: 16.0),
+                    margin: EdgeInsets.only(
+                        top: 180.0, left: 24.0, right: 24.0, bottom: 16.0),
                     child: ListView(
                       shrinkWrap: true,
                       children: <Widget>[

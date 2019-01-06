@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/const/gradient_const.dart';
 import 'package:flutter_ui_nice/const/icons.dart';
 import 'package:flutter_ui_nice/const/images_const.dart';
