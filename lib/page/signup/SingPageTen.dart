@@ -41,28 +41,36 @@ class _SignPageTeenState extends State<SignPageTeen>
       appBar: SignupApbar(
         title: "CREATE ACCOUNT",
       ),
-      body: Stack(
-        alignment: Alignment.centerLeft,
-        fit: StackFit.loose,
-        children: <Widget>[
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: SIGNUP_BACKGROUND,
-            ),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        primary: false,
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
+            alignment: Alignment.centerLeft,
+            fit: StackFit.loose,
+            children: <Widget>[
+              Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: SIGNUP_BACKGROUND,
+                ),
+              ),
+              PageView.builder(
+                controller: _pageController,
+                itemBuilder: (context, index) {
+                  return widgets[index];
+                },
+                physics: BouncingScrollPhysics(),
+                itemCount: widgets.length,
+                scrollDirection: Axis.horizontal,
+              ),
+              buildPositionedDosts(widgets),
+            ],
           ),
-          PageView.builder(
-            controller: _pageController,
-            itemBuilder: (context, index) {
-              return widgets[index];
-            },
-            physics: BouncingScrollPhysics(),
-            itemCount: widgets.length,
-            scrollDirection: Axis.horizontal,
-          ),
-          buildPositionedDosts(widgets),
-        ],
+        ),
       ),
     );
   }
