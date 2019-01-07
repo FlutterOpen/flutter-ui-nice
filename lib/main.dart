@@ -22,6 +22,9 @@ class MyApp extends StatelessWidget {
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
         SIGN_UP_PAGES[1]: (context) => SignPageTwo(),
 
+        //PROFILE pages
+        PROFILE_PAGES[0]: (context) => ProfilePageOne(),
+
         ///FEED group page
         FEED_PAGES[0]: (context) => FeedPageOne(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
