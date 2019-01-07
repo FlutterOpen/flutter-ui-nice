@@ -43,7 +43,7 @@ class _SignPageTeenState extends State<SignPageTeen>
       ),
       body: Stack(
         alignment: Alignment.centerLeft,
-        fit: StackFit.expand,
+        fit: StackFit.loose,
         children: <Widget>[
           Container(
             height: double.infinity,
@@ -107,66 +107,31 @@ class _SignPageTeenState extends State<SignPageTeen>
                           bottomRight: Radius.circular(10),
                         ),
                       ),
-                      child: ListView(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(left: 35.0, top: 35),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                textField("Name", false),
-                                textField("Email", false),
-                                textField("Password", true),
-                              ],
-                            ),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 35.0, top: 30, bottom: 35),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Expanded(
+                                child:
+                                    Container(child: textField("Name", false))),
+                            Expanded(
+                                child: Container(
+                                    child: textField("Email", false))),
+                            Expanded(
+                                child: Container(
+                                    child: textField("Password", true))),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: 40,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 30.0),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 36.0, vertical: 16.0),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 15,
-                                  spreadRadius: 0,
-                                  offset: Offset(0.0, 32.0)),
-                            ],
-                            borderRadius: new BorderRadius.circular(36.0),
-                            gradient: LinearGradient(
-                                begin: FractionalOffset.centerLeft,
-// Add one stop for each color. Stops should increase from 0 to 1
-                                stops: [
-                                  0.2,
-                                  1
-                                ],
-                                colors: [
-                                  Color(0xff000000),
-                                  Color(0xff434343),
-                                ])),
-                        child: Text(
-                          'NEXT',
-                          style: TextStyle(
-                              color: Color(0xffF1EA94),
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat'),
-                        ),
-                      ),
-                    ),
-                  ),
+                  buildNextButton(),
                   InkWell(
                     onTap: () => print("Term tapped"),
                     child: Text(
@@ -185,9 +150,47 @@ class _SignPageTeenState extends State<SignPageTeen>
     );
   }
 
+  Padding buildNextButton() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30.0),
+      child: InkWell(
+        onTap: () {},
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 36.0, vertical: 16.0),
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 15,
+                    spreadRadius: 0,
+                    offset: Offset(0.0, 32.0)),
+              ],
+              borderRadius: new BorderRadius.circular(36.0),
+              gradient: LinearGradient(begin: FractionalOffset.centerLeft,
+// Add one stop for each color. Stops should increase from 0 to 1
+                  stops: [
+                    0.2,
+                    1
+                  ], colors: [
+                Color(0xff000000),
+                Color(0xff434343),
+              ])),
+          child: Text(
+            'NEXT',
+            style: TextStyle(
+                color: Color(0xffF1EA94),
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Montserrat'),
+          ),
+        ),
+      ),
+    );
+  }
+
   TextField textField(String labelText, bool obscureText) {
     return TextField(
       style: hintAndValueStyle,
+      keyboardAppearance: Brightness.light,
       obscureText: obscureText,
       decoration: new InputDecoration(
         labelText: labelText,
@@ -201,8 +204,8 @@ class _SignPageTeenState extends State<SignPageTeen>
   }
 
   Positioned buildPositionedDosts(List<Widget> widgets) {
-    var _media = MediaQuery.of(context).size;
-    print(_media.width);
+    var _mediaWidth = MediaQuery.of(context).size.width;
+    print(_mediaWidth);
     return Positioned(
       left: 50,
       top: 50,
@@ -210,13 +213,36 @@ class _SignPageTeenState extends State<SignPageTeen>
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 60.0, left: 10),
-            child: Container(
-              height: 3,
-              width: _media.width / 2 - 10,
-              color: Color(0xFFffb5b5),
-            ),
+          Row(
+            children: <Widget>[
+              Flexible(
+                flex: 5,
+                child: Row(
+                  children: <Widget>[
+                    Flexible(
+                      child: Container(),
+                      flex: 1,
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: _mediaWidth > 400
+                            ? EdgeInsets.only(right: 18.0, left: 18)
+                            : EdgeInsets.only(right: 8),
+                        child: Container(
+                          height: 3,
+                          color: Color(0xFFffb5b5),
+                        ),
+                      ),
+                      flex: 4,
+                    ),
+                    Flexible(
+                      child: Container(),
+                      flex: 2,
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
           SelectedWidget(
             numberOfDots: widgets.length,
