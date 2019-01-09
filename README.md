@@ -2,8 +2,11 @@
 ### :heart: Star :heart: the repo to support the project or :smile:[Follow Me](https://github.com/nb312).Thanks!
 **The project is developing,do not complete** please wait. 
 This project will comply with many people.
-If you interest in this project please let me know.[My Facebook](https://www.facebook.com/profile.php?id=100018259667795)
+You can connect us with follow message.
 
+Facebook Page | Facebook Group | QQ Group | 
+--- | --- | --- | ---
+[Flutter Open ](https://www.facebook.com/flutteropen) | [Flutter Open](https://www.facebook.com/groups/948618338674126/) |  963828159
 <img src="doc/01-signup-no.jpg"/>
 
 <img src="doc/02-walk_through-no.jpg"/>
