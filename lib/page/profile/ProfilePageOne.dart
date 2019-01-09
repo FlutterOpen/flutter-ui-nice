@@ -32,18 +32,19 @@ class _ProfileState extends State<ProfilePageOne> {
   Widget build(BuildContext context) {
     Widget _itemPhoto(String img) {
       return Container(
-          margin: EdgeInsets.only(
-            left: SizeUtil.getAxisX(10.0),
-            right: SizeUtil.getAxisX(10.0),
+        margin: EdgeInsets.only(
+          left: SizeUtil.getAxisX(10.0),
+          right: SizeUtil.getAxisX(10.0),
+        ),
+        child: ClipRRect(
+          borderRadius: new BorderRadius.circular(22.0),
+          child: Image.asset(
+            img,
+            width: SizeUtil.getAxisBoth(PHOTO_BUTTON_HEIGHT),
+            height: SizeUtil.getAxisBoth(PHOTO_BUTTON_HEIGHT),
           ),
-          child: ClipRRect(
-            borderRadius: new BorderRadius.circular(22.0),
-            child: Image.asset(
-              img,
-              width: SizeUtil.getAxisBoth(PHOTO_BUTTON_HEIGHT),
-              height: SizeUtil.getAxisBoth(PHOTO_BUTTON_HEIGHT),
-            ),
-          ));
+        ),
+      );
     }
 
     Widget _itemText(String txt) {
@@ -53,26 +54,34 @@ class _ProfileState extends State<ProfilePageOne> {
           right: SizeUtil.getAxisX(10.0),
         ),
         constraints: BoxConstraints.expand(
-            height: SizeUtil.getAxisY(PHOTO_BUTTON_HEIGHT),
-            width: SizeUtil.getAxisX(PHOTO_BUTTON_HEIGHT)),
+          height: SizeUtil.getAxisY(PHOTO_BUTTON_HEIGHT),
+          width: SizeUtil.getAxisX(PHOTO_BUTTON_HEIGHT),
+        ),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [Colors.redAccent, Colors.pinkAccent]),
-            borderRadius: BorderRadius.circular(22.0)),
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              colors: [Colors.redAccent, Colors.pinkAccent]),
+          borderRadius: BorderRadius.circular(22.0),
+        ),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(txt,
-                  style: TextStyle(
-                      color: ProfileColors.COLOR_WHITE,
-                      fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_XL))),
-              Text(ProfileStrings.STRING_PHOTOS,
-                  style: TextStyle(
-                      color: ProfileColors.COLOR_WHITE,
-                      fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S)))
+              Text(
+                txt,
+                style: TextStyle(
+                  color: ProfileColors.COLOR_WHITE,
+                  fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_XL),
+                ),
+              ),
+              Text(
+                ProfileStrings.STRING_PHOTOS,
+                style: TextStyle(
+                  color: ProfileColors.COLOR_WHITE,
+                  fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
+                ),
+              )
             ],
           ),
         ),
@@ -81,25 +90,26 @@ class _ProfileState extends State<ProfilePageOne> {
 
     Widget _buildPhotos() {
       return Container(
-          constraints: BoxConstraints.expand(
-              height: SizeUtil.getAxisY(PHOTO_BUTTON_HEIGHT)),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: photos.length > 2 ? photos.length + 1 : photos.length,
-            itemBuilder: (context, idx) {
-              if (idx < 2) {
-                return _itemPhoto(photos[idx]);
-              } else if (idx == 2) {
-                if (photos.length > 2) {
-                  return _itemText("+" + photos.length.toString());
-                } else {
-                  return _itemPhoto(photos[idx]);
-                }
+        constraints: BoxConstraints.expand(
+            height: SizeUtil.getAxisY(PHOTO_BUTTON_HEIGHT)),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: photos.length > 2 ? photos.length + 1 : photos.length,
+          itemBuilder: (context, idx) {
+            if (idx < 2) {
+              return _itemPhoto(photos[idx]);
+            } else if (idx == 2) {
+              if (photos.length > 2) {
+                return _itemText("+" + photos.length.toString());
               } else {
-                return _itemPhoto(photos[idx - 1]);
+                return _itemPhoto(photos[idx]);
               }
-            },
-          ));
+            } else {
+              return _itemPhoto(photos[idx - 1]);
+            }
+          },
+        ),
+      );
     }
 
     Widget _bottomBar() {
@@ -113,26 +123,33 @@ class _ProfileState extends State<ProfilePageOne> {
               width: SizeUtil.getAxisX(PHOTO_BUTTON_HEIGHT),
               height: SizeUtil.getAxisY(PHOTO_BUTTON_HEIGHT),
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Color(0x44FFFFFF), Color(0x44FFFFFF)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight),
-                  borderRadius: BorderRadius.circular(
-                    SizeUtil.getAxisX(22.0),
-                  )),
+                gradient: LinearGradient(
+                    colors: [Color(0x44FFFFFF), Color(0x44FFFFFF)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight),
+                borderRadius: BorderRadius.circular(
+                  SizeUtil.getAxisX(22.0),
+                ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('17,589',
-                      style: TextStyle(
-                          color: TEXT_BLACK,
-                          fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
-                          fontWeight: FontWeight.w700)),
-                  Text('followers',
-                      style: TextStyle(
-                          color: ProfileColors.COLOR_DARK,
-                          fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S)))
+                  Text(
+                    '17,589',
+                    style: TextStyle(
+                      color: TEXT_BLACK,
+                      fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    'followers',
+                    style: TextStyle(
+                      color: ProfileColors.COLOR_DARK,
+                      fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -143,15 +160,21 @@ class _ProfileState extends State<ProfilePageOne> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('9,854',
-                      style: TextStyle(
-                          color: TEXT_BLACK,
-                          fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
-                          fontWeight: FontWeight.w700)),
-                  Text('following',
-                      style: TextStyle(
-                          color: ProfileColors.COLOR_DARK,
-                          fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S)))
+                  Text(
+                    '9,854',
+                    style: TextStyle(
+                      color: TEXT_BLACK,
+                      fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    'following',
+                    style: TextStyle(
+                      color: ProfileColors.COLOR_DARK,
+                      fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
+                    ),
+                  )
                 ],
               ),
             )
@@ -163,10 +186,12 @@ class _ProfileState extends State<ProfilePageOne> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [YELLOW, GREEN],
-                begin: Alignment.topLeft,
-                end: Alignment.centerLeft)),
+          gradient: LinearGradient(
+            colors: [YELLOW, GREEN],
+            begin: Alignment.topLeft,
+            end: Alignment.centerLeft,
+          ),
+        ),
         child: Column(
           children: <Widget>[
             TopBar(
@@ -178,60 +203,84 @@ class _ProfileState extends State<ProfilePageOne> {
                 children: <Widget>[
                   Container(
                     padding: EdgeInsets.only(
-                        left: 100, top: 30, right: 15, bottom: 30),
+                      left: 100,
+                      top: 30,
+                      right: 15,
+                      bottom: 30,
+                    ),
                     child: Column(
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Image.asset(ProfileImages.avatar,
-                                width: SizeUtil.getAxisY(SQUARE_BUTTON_HEIGHT),
-                                height:
-                                    SizeUtil.getAxisY(SQUARE_BUTTON_HEIGHT)),
-                            InkWell(
-                              onTap: () => debugPrint('Follow pressed'),
-                              child: Container(
-                                  width: SizeUtil.getAxisY(REC_BUTTON_WIDTH),
-                                  height: SizeUtil.getAxisY(REC_BUTTON_HEIGHT),
-                                  decoration: new BoxDecoration(
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        colors: [
-                                          ProfileColors.COLOR_BLACK,
-                                          ProfileColors.COLOR_GREY
-                                        ]),
-                                    borderRadius:
-                                        new BorderRadius.circular(100.0),
-                                  ),
+                            Image.asset(
+                              ProfileImages.avatar,
+                              width: SizeUtil.getAxisY(SQUARE_BUTTON_HEIGHT),
+                              height: SizeUtil.getAxisY(SQUARE_BUTTON_HEIGHT),
+                            ),
+                            Container(
+                              width: SizeUtil.getAxisY(REC_BUTTON_WIDTH),
+                              height: SizeUtil.getAxisY(REC_BUTTON_HEIGHT),
+                              decoration: new BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  colors: [
+                                    ProfileColors.COLOR_BLACK,
+                                    ProfileColors.COLOR_GREY,
+                                  ],
+                                ),
+                                borderRadius: new BorderRadius.circular(100.0),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      new BorderRadius.circular(100.0),
+                                ),
+                                child: InkWell(
+                                  onTap: () => debugPrint('Follow pressed'),
+                                  splashColor: ProfileColors.COLOR_GREY,
+                                  highlightColor: ProfileColors.COLOR_GREY,
+                                  borderRadius:
+                                      new BorderRadius.circular(100.0),
                                   child: new Center(
-                                      child: new Text(
-                                          ProfileStrings.STRING_FOLLOW,
-                                          style: new TextStyle(
-                                              fontSize: SizeUtil.getAxisBoth(
-                                                  TEXT_SIZE_M),
-                                              color: ProfileColors
-                                                  .COLOR_YELLOW)))),
+                                    child: new Text(
+                                      ProfileStrings.STRING_FOLLOW,
+                                      style: new TextStyle(
+                                        fontSize:
+                                            SizeUtil.getAxisBoth(TEXT_SIZE_M),
+                                        color: ProfileColors.COLOR_YELLOW,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             )
                           ],
                         ),
                         SizedBox(height: 20.0),
                         Row(
                           children: <Widget>[
-                            Text('Hristo Hristov',
-                                style: TextStyle(
-                                    color: TEXT_BLACK,
-                                    fontSize:
-                                        SizeUtil.getAxisBoth(TEXT_SIZE_XXL),
-                                    fontWeight: FontWeight.w300))
+                            Text(
+                              'Hristo Hristov',
+                              style: TextStyle(
+                                color: TEXT_BLACK,
+                                fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_XXL),
+                                fontWeight: FontWeight.w300,
+                              ),
+                            )
                           ],
                         ),
                         Row(
                           children: <Widget>[
-                            Text('Frankfurt am main',
-                                style: TextStyle(
-                                    color: TEXT_BLACK,
-                                    fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_M),
-                                    fontWeight: FontWeight.w300)),
+                            Text(
+                              'Frankfurt am main',
+                              style: TextStyle(
+                                color: TEXT_BLACK,
+                                fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_M),
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
                             Container(
                               width: 1.0,
                               height: 12,
@@ -241,9 +290,10 @@ class _ProfileState extends State<ProfilePageOne> {
                             Text(
                               'Germany',
                               style: TextStyle(
-                                  color: TEXT_BLACK,
-                                  fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_M),
-                                  fontWeight: FontWeight.w300),
+                                color: TEXT_BLACK,
+                                fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_M),
+                                fontWeight: FontWeight.w300,
+                              ),
                             )
                           ],
                         ),
@@ -252,16 +302,17 @@ class _ProfileState extends State<ProfilePageOne> {
                   ),
                   _buildPhotos(),
                   Container(
-                      padding: EdgeInsets.only(
-                          left: 100, top: 30, right: 15, bottom: 30),
-                      child: Text(
-                        'Excepteur sint occacupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occacupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                        softWrap: true,
-                        style: TextStyle(
-                            color: TEXT_BLACK,
-                            fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
-                            height: 1.5),
-                      )),
+                    padding: EdgeInsets.only(
+                        left: 100, top: 30, right: 15, bottom: 30),
+                    child: Text(
+                      'Excepteur sint occacupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occacupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                      softWrap: true,
+                      style: TextStyle(
+                          color: TEXT_BLACK,
+                          fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S),
+                          height: 1.5),
+                    ),
+                  ),
                 ],
               ),
             ),
