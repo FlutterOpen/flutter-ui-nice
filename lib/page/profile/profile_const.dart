@@ -4,9 +4,18 @@
 /// Email: dndoanh@gmail.com
 ///
 import "package:flutter/material.dart";
-class ProfileStringConst {
-  static const PROFILE_NAME = "PROFILE";
-  static const PROFILE_PHOTOS = "photos";
+class ProfileStrings {
+  static const STRING_NAME = "PROFILE";
+  static const STRING_FOLLOW = "FOLLOW";
+  static const STRING_PHOTOS = "photos";
+}
+
+class ProfileColors {
+  static const COLOR_BLACK = Color(0xFF010101);
+  static const COLOR_GREY = Color(0xFF424242);
+  static const COLOR_WHITE = Color(0xFFF7FFE3);
+  static const COLOR_DARK = Color(0xFF34323D);
+  static const COLOR_YELLOW = Color(0xFFF1EA94);
 }
 
 const CIRCLE_BUTTON_HEIGHT = 87.0;
@@ -23,8 +32,6 @@ const TEXT_SIZE_XL = 40.0;
 const TEXT_SIZE_L = 28.0;
 const TEXT_SIZE_M = 26.0;
 const TEXT_SIZE_S = 24.0;
-const TEXT_COLOR_WHITE = Color(0xFFF7FFE3);
-const TEXT_COLOR_DARK = Color(0xFF34323D);
 
 class ProfileImages {
   static const IMAGE_PATH = "images/profile";

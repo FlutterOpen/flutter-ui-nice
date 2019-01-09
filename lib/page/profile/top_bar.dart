@@ -9,24 +9,36 @@ import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/util/SizeUtil.dart';
 
 class TopBar extends StatelessWidget {
-  TopBar({this.leftIcon, this.rightIcon});
+  TopBar(
+      {this.leftIcon,
+      this.rightIcon,
+      this.onLeftIconPressed,
+      this.onRightIconPressed});
 
   final String leftIcon;
   final String rightIcon;
+  final Function() onLeftIconPressed;
+  final Function() onRightIconPressed;
 
   @override
   Widget build(BuildContext context) {
-     final icons = <Widget>[];
-     if(leftIcon != null) {
-       icons.add(Image.asset(leftIcon,
-           width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
-           height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT)));
-     }
-     if (rightIcon != null) {
-       icons.add(Image.asset(rightIcon,
-           width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
-           height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT)));
-     }
+    final icons = <Widget>[];
+    if (leftIcon != null) {
+      icons.add(InkWell(
+        onTap: onLeftIconPressed,
+        child: Image.asset(leftIcon,
+            width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
+            height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT)),
+      ));
+    }
+    if (rightIcon != null) {
+      icons.add(InkWell(
+        onTap: onRightIconPressed,
+        child: Image.asset(rightIcon,
+            width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
+            height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT)),
+      ));
+    }
 
     return Container(
       constraints:
@@ -43,7 +55,7 @@ class TopBar extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(top: SizeUtil.getAxisY(30.0)),
               child: Text(
-                ProfileStringConst.PROFILE_NAME,
+                ProfileStrings.STRING_NAME,
                 style: TextStyle(
                     color: TEXT_BLACK,
                     fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_L),

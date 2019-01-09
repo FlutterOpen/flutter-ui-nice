@@ -67,11 +67,11 @@ class _ProfileState extends State<ProfilePageOne> {
             children: <Widget>[
               Text(txt,
                   style: TextStyle(
-                      color: TEXT_COLOR_WHITE,
+                      color: ProfileColors.COLOR_WHITE,
                       fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_XL))),
-              Text(ProfileStringConst.PROFILE_PHOTOS,
+              Text(ProfileStrings.STRING_PHOTOS,
                   style: TextStyle(
-                      color: TEXT_COLOR_WHITE,
+                      color: ProfileColors.COLOR_WHITE,
                       fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S)))
             ],
           ),
@@ -91,7 +91,7 @@ class _ProfileState extends State<ProfilePageOne> {
                 return _itemPhoto(photos[idx]);
               } else if (idx == 2) {
                 if (photos.length > 2) {
-                  return _itemText("+" + photos.length.toString() + "29");
+                  return _itemText("+" + photos.length.toString());
                 } else {
                   return _itemPhoto(photos[idx]);
                 }
@@ -131,7 +131,7 @@ class _ProfileState extends State<ProfilePageOne> {
                           fontWeight: FontWeight.w700)),
                   Text('followers',
                       style: TextStyle(
-                          color: TEXT_COLOR_DARK,
+                          color: ProfileColors.COLOR_DARK,
                           fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S)))
                 ],
               ),
@@ -150,7 +150,7 @@ class _ProfileState extends State<ProfilePageOne> {
                           fontWeight: FontWeight.w700)),
                   Text('following',
                       style: TextStyle(
-                          color: TEXT_COLOR_DARK,
+                          color: ProfileColors.COLOR_DARK,
                           fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_S)))
                 ],
               ),
@@ -169,7 +169,10 @@ class _ProfileState extends State<ProfilePageOne> {
                 end: Alignment.centerLeft)),
         child: Column(
           children: <Widget>[
-            TopBar(leftIcon: ProfileImages.arrow_left),
+            TopBar(
+              leftIcon: ProfileImages.arrow_left,
+              onLeftIconPressed: () => Navigator.pop(context),
+            ),
             Expanded(
               child: ListView(
                 children: <Widget>[
@@ -185,14 +188,33 @@ class _ProfileState extends State<ProfilePageOne> {
                                 width: SizeUtil.getAxisY(SQUARE_BUTTON_HEIGHT),
                                 height:
                                     SizeUtil.getAxisY(SQUARE_BUTTON_HEIGHT)),
-                            Image.asset(ProfileImages.follow,
-                                width: SizeUtil.getAxisY(REC_BUTTON_WIDTH),
-                                height: SizeUtil.getAxisY(REC_BUTTON_HEIGHT))
+                            InkWell(
+                              onTap: () => debugPrint('Follow pressed'),
+                              child: Container(
+                                  width: SizeUtil.getAxisY(REC_BUTTON_WIDTH),
+                                  height: SizeUtil.getAxisY(REC_BUTTON_HEIGHT),
+                                  decoration: new BoxDecoration(
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        colors: [
+                                          ProfileColors.COLOR_BLACK,
+                                          ProfileColors.COLOR_GREY
+                                        ]),
+                                    borderRadius:
+                                        new BorderRadius.circular(100.0),
+                                  ),
+                                  child: new Center(
+                                      child: new Text(
+                                          ProfileStrings.STRING_FOLLOW,
+                                          style: new TextStyle(
+                                              fontSize: SizeUtil.getAxisBoth(
+                                                  TEXT_SIZE_M),
+                                              color: ProfileColors
+                                                  .COLOR_YELLOW)))),
+                            )
                           ],
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                        ),
+                        SizedBox(height: 20.0),
                         Row(
                           children: <Widget>[
                             Text('Hristo Hristov',
@@ -205,7 +227,7 @@ class _ProfileState extends State<ProfilePageOne> {
                         ),
                         Row(
                           children: <Widget>[
-                            Text('frankfurt am main',
+                            Text('Frankfurt am main',
                                 style: TextStyle(
                                     color: TEXT_BLACK,
                                     fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_M),
@@ -217,7 +239,7 @@ class _ProfileState extends State<ProfilePageOne> {
                               margin: EdgeInsets.only(left: 10, right: 10),
                             ),
                             Text(
-                              'germany',
+                              'Germany',
                               style: TextStyle(
                                   color: TEXT_BLACK,
                                   fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_M),
@@ -228,13 +250,10 @@ class _ProfileState extends State<ProfilePageOne> {
                       ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
-                  ),
                   _buildPhotos(),
                   Container(
                       padding: EdgeInsets.only(
-                          left: 100, top: 50, right: 15, bottom: 30),
+                          left: 100, top: 30, right: 15, bottom: 30),
                       child: Text(
                         'Excepteur sint occacupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occacupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         softWrap: true,
