@@ -11,6 +11,8 @@ import 'package:flutter_ui_nice/view/AboutMeTitle.dart';
 import 'package:flutter_ui_nice/const/size_const.dart';
 import 'package:flutter_ui_nice/const/images_const.dart';
 import 'package:flutter_ui_nice/const/color_const.dart';
+import 'package:flutter_ui_nice/util/SizeUtil.dart';
+import 'package:flutter_ui_nice/util/GradientUtil.dart';
 
 class HomePage extends StatelessWidget {
   final _scaffoldState = GlobalKey<ScaffoldState>();
@@ -18,6 +20,7 @@ class HomePage extends StatelessWidget {
   Widget _topBar() => SliverAppBar(
         elevation: 1.0,
         pinned: true,
+        backgroundColor: BLUE,
         expandedHeight: 150.0,
         flexibleSpace: FlexibleSpaceBar(
           title: Padding(
@@ -32,10 +35,10 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   width: 6.0,
                 ),
-                Text(
-                  StringConst.APP_NAME,
-                  style: TextStyle(color: Colors.white),
-                )
+                Text(StringConst.APP_NAME,
+                    style: TextStyle(
+                      color: TEXT_BLACK_LIGHT,
+                    ))
               ],
             ),
           ),
@@ -55,12 +58,8 @@ class HomePage extends StatelessWidget {
     return InkWell(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: Colors.grey[800],
-            offset: Offset(0.0, 2.0),
-          )
-        ]),
+        margin: EdgeInsets.only(bottom: 1.0),
+        decoration: BoxDecoration(gradient: GradientUtil.greenPurple()),
         constraints: BoxConstraints.expand(height: 60.0),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +68,7 @@ class HomePage extends StatelessWidget {
               Text(
                 item,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: TEXT_BLACK_LIGHT,
                     fontSize: TEXT_NORMAL_SIZE,
                     fontWeight: FontWeight.w700),
               ),
@@ -82,7 +81,7 @@ class HomePage extends StatelessWidget {
             ),
       ),
       onTap: () {
-        Navigator.pop(context);
+//        Navigator.pop(context);
         Navigator.pushNamed(context, "$item");
       },
     );
@@ -102,10 +101,7 @@ class HomePage extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 4.0),
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            PURPLE,
-            Colors.grey[900],
-          ]),
+          gradient: GradientUtil.yellowGreen(),
         ),
         constraints: BoxConstraints.expand(height: 80.0),
         child: Center(
@@ -120,8 +116,8 @@ class HomePage extends StatelessWidget {
               ),
               Text(
                 StringConst.CREATE_BY,
-                style:
-                    TextStyle(color: Colors.white, fontSize: TEXT_NORMAL_SIZE),
+                style: TextStyle(
+                    color: TEXT_BLACK_LIGHT, fontSize: TEXT_NORMAL_SIZE),
               ),
             ],
           ),
@@ -134,18 +130,22 @@ class HomePage extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       builder: (context) => Material(
-            color: Colors.white,
+            color: GREEN,
             clipBehavior: Clip.antiAliasWithSaveLayer,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0))),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 _header(),
                 Expanded(
-                  child: _menuList(menu),
+                  child: Container(
+                    child: _menuList(menu),
+                  ),
                 ),
                 AboutMeTitle(),
               ],
@@ -154,7 +154,41 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _gridItem(context, Menu menu) => InkWell(
+  LinearGradient _itemGradient(index) {
+    var gradient = GradientUtil.red(
+        begin: AlignmentDirectional.topStart,
+        end: AlignmentDirectional.bottomEnd,
+        opacity: 0.7);
+    switch (index % 4) {
+      case 0:
+        gradient = GradientUtil.red(
+            begin: AlignmentDirectional.topStart,
+            end: AlignmentDirectional.bottomEnd,
+            opacity: 0.7);
+        break;
+      case 1:
+        gradient = GradientUtil.greenPurple(
+            begin: AlignmentDirectional.topStart,
+            end: AlignmentDirectional.bottomEnd,
+            opacity: 0.7);
+        break;
+      case 2:
+        gradient = GradientUtil.greenRed(
+            begin: AlignmentDirectional.topStart,
+            end: AlignmentDirectional.bottomEnd,
+            opacity: 0.7);
+        break;
+      case 3:
+        gradient = GradientUtil.yellowBlue(
+            begin: AlignmentDirectional.topStart,
+            end: AlignmentDirectional.bottomEnd,
+            opacity: 0.7);
+        break;
+    }
+    return gradient;
+  }
+
+  Widget _gridItem(context, Menu menu, index) => InkWell(
         onTap: () {
           _clickMenu(context, menu);
         },
@@ -167,11 +201,7 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               constraints: BoxConstraints.expand(),
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    colors: [PURPLE, Colors.grey[850].withOpacity(0.9)],
-                    radius: 0.3),
-              ),
+              decoration: BoxDecoration(gradient: _itemGradient(index)),
             ),
             Container(
               constraints: BoxConstraints.expand(),
@@ -182,7 +212,8 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     Icon(
                       menu.icon,
-                      color: Colors.white,
+                      color: TEXT_BLACK_LIGHT,
+                      size: 40.0,
                     ),
                     SizedBox(
                       height: 4.0,
@@ -190,7 +221,9 @@ class HomePage extends StatelessWidget {
                     Text(
                       menu.title,
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.w700),
+                          color: TEXT_BLACK_LIGHT,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16.0),
                     )
                   ],
                 ),
@@ -204,11 +237,11 @@ class HomePage extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 4.0,
             crossAxisSpacing: 4.0,
-            childAspectRatio: 1.0,
+            childAspectRatio: 0.8,
             crossAxisCount: 2),
         delegate: SliverChildBuilderDelegate((context, index) {
           var menu = list[index];
-          return _gridItem(context, menu);
+          return _gridItem(context, menu, index);
         }, childCount: list.length),
       );
 
@@ -240,6 +273,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeUtil.size = MediaQuery.of(context).size;
     return _showAndroid(context);
   }
 }
