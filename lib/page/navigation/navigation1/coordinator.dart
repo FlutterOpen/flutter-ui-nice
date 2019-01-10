@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_nice/page/navigation/navigation1/widgets/main_page.dart';
+import 'package:flutter_ui_nice/page/navigation/widgets/background_common.dart';
 
 class NavigationOneCoordinator extends StatefulWidget {
 	@override
@@ -14,7 +14,13 @@ class _Coordinator extends State<NavigationOneCoordinator> {
   }
 
 	@override
-  Widget build(BuildContext context) => MainPage();
+  Widget build(BuildContext context) => BackgroundCommon(
+		child: Stack(
+			children: <Widget>[
+
+			],
+		),
+	);
 
 	@override
 	void dispose() {
