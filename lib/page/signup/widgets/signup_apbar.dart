@@ -27,7 +27,7 @@ class SignupApbar extends StatelessWidget implements PreferredSizeWidget {
               arrow_left,
               fontFamily: "Icons",
             ),
-            iconSize: 10,
+            iconSize: 9,
             height: 48,
             width: 48,
           ),
