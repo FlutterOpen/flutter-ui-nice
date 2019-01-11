@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_nice/page/navigation/navigation1/animations/home_page_animator.dart';
 import 'package:flutter_ui_nice/page/navigation/navigation1/widgets/menu_buttons.dart';
-import 'package:flutter_ui_nice/page/navigation/widgets/background_common.dart';
+import 'package:flutter_ui_nice/page/navigation/common/widgets/background_common.dart';
+import 'package:flutter_ui_nice/page/navigation/common/pages/home_page.dart';
 
 class NavigationOneCoordinator extends StatefulWidget {
 	@override
 	_Coordinator createState() => _Coordinator();
 }
 
-class _Coordinator extends State<NavigationOneCoordinator> {
+class _Coordinator extends State<NavigationOneCoordinator> with TickerProviderStateMixin {
+	AnimationController _controller;
+	HomePageAnimator _animator;
 
 	@override
   void initState() {
     super.initState();
+		_controller = AnimationController(vsync: this, duration: Duration(milliseconds: 700));
+		_animator = HomePageAnimator(_controller);
   }
 
-  _onHomePressed() {
-		debugPrint("Home Pressed");
-	}
+  _onHomePressed() => _showHome();
 
 	_onChatPressed() {
 		debugPrint("Chat Pressed");
@@ -49,14 +53,42 @@ class _Coordinator extends State<NavigationOneCoordinator> {
 							onProfilePressed: _onProfilePressed,
 							onSettingsPressed: _onSettingsPressed,
 						),
-					)
+					),
+
+					AnimatedBuilder(
+							animation: _controller,
+							builder: (context, widget) => Transform(
+								alignment: Alignment.centerLeft,
+								transform: Matrix4
+										.translationValues(_animator.translateLeft.value, 0.0, 0.0)
+										..scale(_animator.scaleDown.value),
+								child: HomePage(() => _openMenu()),
+							),
+					),
 				],
 			),
 		),
 	);
 
+	Future _openMenu() async {
+		try {
+			await _controller.forward().orCancel;
+		} on TickerCanceled {
+			print("Animation Failed");
+		}
+	}
+
+	Future _showHome() async {
+		try {
+			await _controller.reverse().orCancel;
+		} on TickerCanceled {
+			print("Animation Failed");
+		}
+	}
+
 	@override
 	void dispose() {
 		super.dispose();
+		_controller.dispose();
 	}
 }
