@@ -13,6 +13,7 @@ export 'profile/ProfilePageOne.dart';
 
 export 'feed/FeedPageFour.dart';
 export 'feed/FeedPageOne.dart';
+export 'feed/FeedPageTwo.dart';
 export 'feed/FeedPageTen.dart';
 export 'feed/FeedPageEleven.dart';
 export 'feed/FeedPageTwelve.dart';
