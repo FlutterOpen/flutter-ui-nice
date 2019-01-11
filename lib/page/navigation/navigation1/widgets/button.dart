@@ -3,63 +3,66 @@ import 'package:flutter_ui_nice/const/color_const.dart';
 
 class Button {
 
-	static Widget home() => _buildButton("HOME", Icons.home);
+	static Widget home(VoidCallback onPressed) => _buildButton(onPressed, "HOME", Icons.home);
 
-	static Widget chat({int notification})  => _buildButton("CHAT", Icons.chat, notification: notification);
+	static Widget chat(VoidCallback onPressed, {int notification})  => _buildButton(onPressed, "CHAT", Icons.chat, notification:
+	notification);
 
-	static Widget feed() => _buildButton("FEED", Icons.rss_feed);
+	static Widget feed(VoidCallback onPressed) => _buildButton(onPressed, "FEED", Icons.rss_feed);
 
-	static Widget profile() => _buildButton("PROFILE", Icons.person);
+	static Widget profile(VoidCallback onPressed) => _buildButton(onPressed, "PROFILE", Icons.person);
 
-	static Widget settings() => _buildButton("SETTINGS", Icons.settings);
+	static Widget settings(VoidCallback onPressed) => _buildButton(onPressed, "SETTINGS", Icons.settings);
 
-	static Widget _buildButton(String title, IconData icon, {int notification}) {
+	static Widget _buildButton(VoidCallback onPressed, String title, IconData icon, {int notification}) {
 		if (notification != null) {
 			return Container(
 				child: Stack(
 					children: <Widget>[
-						Container(
-							decoration: BoxDecoration(
-								borderRadius: BorderRadius.circular(50.0),
-								color: RED
-							),
+						_button(onPressed, title, icon),
+						Positioned(
+							top: 0.0,
+						  right: 0.0,
+						  child: Container(
+						  	decoration: BoxDecoration(
+						  		shape: BoxShape.circle,
+						  		color: Colors.redAccent
+						  	),
+						  	child: Padding(
+						  	  padding: const EdgeInsets.all(6.0),
+						  	  child: Text("$notification", style: TextStyle(color: Colors.white),),
+						  	),
+						  ),
 						),
-						_button(title, icon)
 					],
 				),
 			);
 		} else {
-			return _button(title, icon);
+			return _button(onPressed, title, icon);
 		}
 	}
 
-	static Widget _button(String title, IconData icon) => Container(
-		height: 50.0,
-		width: 180.0,
-		decoration: BoxDecoration(
-				borderRadius: BorderRadius.circular(20.0),
-				color: GREEN
-		),
-		child: InkResponse(
-			onTap: () => debugPrint('Pressed'),
-			splashColor: BLUE_LIGHT,
-			borderRadius: BorderRadius.circular(100.0),
-			child: Center(
-				child: Row(
-					mainAxisAlignment: MainAxisAlignment.center,
-					children: <Widget>[
-						Text(
-							title,
-							style: TextStyle(
-								fontSize: 18.0,
-								color: TEXT_BLACK,
-							),
-						),
-						SizedBox(width: 5.0,),
-						Icon(icon)
-					],
-				),
-			),
+	static Widget _button(VoidCallback onPressed, String title, IconData icon) => RaisedButton(
+		color: GREEN,
+		shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+		onPressed: onPressed,
+		child: Padding(
+		  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+		  child: Row(
+		  	mainAxisAlignment: MainAxisAlignment.spaceBetween,
+		  	children: <Widget>[
+		  		Text(
+		  			title,
+		  			style: TextStyle(
+		  				fontSize: 18.0,
+		  				color: TEXT_BLACK,
+		  			),
+		  		),
+		  		SizedBox(width: 5.0,),
+		  		Icon(icon)
+		  	],
+		  ),
 		),
 	);
+
 }
