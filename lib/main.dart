@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_nice/page/navigation/navigation1/coordinator.dart';
 import 'package:flutter_ui_nice/page/page_const.dart';
 import 'const/string_const.dart';
 import 'const/color_const.dart';
@@ -38,6 +39,8 @@ class MyApp extends StatelessWidget {
         FEED_PAGES[12]: (context) => FeedPageThirteen(),
         SHOPPING_PAGES[17]: (context) => ShopPageEighteen(),
         SHOPPING_PAGES[18]: (context) => ShopPageNineteen(),
+
+				NAVIGATION_PAGES[0]: (context) => NavigationOneCoordinator(),
         //FIXME there are other pages to jump with 'page_str_const.dart',there should be make by manager
       },
       onUnknownRoute: (setting) =>
