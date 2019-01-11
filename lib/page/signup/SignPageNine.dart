@@ -1,29 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_nice/page/signup/widgets/signup_apbar.dart';
 import '../../const/gradient_const.dart';
-import '../../const/icons.dart';
 import '../../const/styles.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'widgets/signup_profile_image_picker.dart';
+import 'widgets/signup_button.dart';
 
-class SignPageNine extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => SignPageNineState();
-}
-
-class SignPageNineState extends State<SignPageNine> {
-  File _image;
-
-  Future getImage() async {
-    File image = await ImagePicker.pickImage(source: ImageSource.camera);
-
-    setState(() {
-      _image = image;
-    });
-  }
-
+class SignPageNine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double statusbarHeight = MediaQuery.of(context).padding.top;
@@ -88,84 +70,13 @@ class SignPageNineState extends State<SignPageNine> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 32.0, right: 72.0, top: 56.0),
-                  child: Stack(
-                    alignment: Alignment.topRight,
-                    children: <Widget>[
-                      Container(
-                        width: 400.0,
-                        height: 182.0,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 15,
-                                spreadRadius: 0,
-                                offset: Offset(0.0, 16.0)),
-                          ],
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16.0),
-                          child: _image != null
-                              ? Image.file(
-                                  _image,
-                                  fit: BoxFit.fitWidth,
-                                )
-                              : Image.asset(
-                                  'assets/images/signup/signup_page_9_profile.png',
-                                  fit: BoxFit.fill,
-                                ),
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          await getImage();
-                        },
-                        icon: Icon(
-                          IconData(camera, fontFamily: 'Icons'),
-                          color: Color(0xffDBEDAF),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                ProfileImagePicker(
+                    margin:
+                        EdgeInsets.only(left: 32.0, right: 72.0, top: 56.0)),
                 Positioned(
                   bottom: 16.0,
                   right: 18.9,
-                  child: InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 36.0, vertical: 16.0),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 15,
-                                spreadRadius: 0,
-                                offset: Offset(0.0, 32.0)),
-                          ],
-                          borderRadius: new BorderRadius.circular(36.0),
-                          gradient:
-                              LinearGradient(begin: FractionalOffset.centerLeft,
-// Add one stop for each color. Stops should increase from 0 to 1
-                                  stops: [
-                                0.2,
-                                1
-                              ], colors: [
-                            Color(0xff000000),
-                            Color(0xff434343),
-                          ])),
-                      child: Text(
-                        'NEXT',
-                        style: TextStyle(
-                            color: Color(0xffF1EA94),
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ),
-                  ),
+                  child: signupButton('NEXT'),
                 ),
               ],
             ),

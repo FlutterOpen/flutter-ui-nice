@@ -1,95 +1,38 @@
-///
-/// Created by NieBin on 2018/12/25
-/// Github: https://github.com/nb312
-/// Email: niebin312@gmail.com
-///
 import "package:flutter/material.dart";
 
-class SignPageTwo extends StatefulWidget {
-  @override
-  _SignTwoState createState() => _SignTwoState();
-}
+import '../../const/gradient_const.dart';
+import 'widgets/date_picker.dart';
+import 'widgets/gender_picker.dart';
+import 'widgets/location_picker.dart';
+import 'widgets/signup_apbar.dart';
+import 'widgets/signup_profile_image_picker.dart';
+import 'widgets/signup_button.dart';
 
-class _SignTwoState extends State<SignPageTwo> {
+class SignPageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Home(),
+      appBar: SignupApbar(
+        title: 'CREATE ACCOUNT',
       ),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  Home({Key key}) : super(key: key);
-
-  @override
-  HomeState createState() {
-    return new HomeState();
-  }
-}
-
-class HomeState extends State<Home> {
-  bool _hasCard;
-
-  @override
-  void initState() {
-    super.initState();
-    _hasCard = false;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> children = new List();
-
-    children.add(_buildBackground());
-    if (_hasCard) children.add(_buildCard());
-
-    return MaterialApp(
-      home: Stack(
-        children: children,
-      ),
-    );
-  }
-
-  void _showCard() {
-    setState(() => _hasCard = true);
-  }
-
-  void _hideCard() {
-    setState(() => _hasCard = false);
-  }
-
-  Widget _buildCard() => new Container(
-        child: new Center(
-          child: new Container(
-            height: 700.0,
-            width: 200.0,
-            color: Colors.lightBlue,
-            child: new Center(
-              child: new Text("Card"),
+      body: Container(
+        padding: EdgeInsets.only(top: 64.0),
+        decoration: BoxDecoration(gradient: SIGNUP_BACKGROUND),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: <Widget>[
+            ProfileImagePicker(
+              margin: EdgeInsets.only(top: 32.0, left: 32.0, right: 32.0),
             ),
-          ),
+            DatePicker(),
+            GenderPicker(),
+            LocationPicker(),
+            Container(
+                margin: EdgeInsets.only(top: 32.0),
+                child: Center(child: signupButton('NEXT')))
+          ],
         ),
-      );
-
-  Widget _buildBackground() => new Scaffold(
-        appBar: new AppBar(
-          title: new Text("AppBar"),
-        ),
-        body: new Container(
-          child: _hasCard
-              ? new FlatButton(
-                  onPressed: _hideCard, child: new Text("Hide card"))
-              : new FlatButton(
-                  onPressed: _showCard, child: new Text("Show card")),
-        ),
-      );
-}
-
-void main() {
-  runApp(
-    new Home(),
-  );
+      ),
+    );
+  }
 }
