@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
         ///FEED group page
         FEED_PAGES[0]: (context) => FeedPageOne(),
-        FEED_PAGES[0]: (context) => FeedPageOne(),
+        FEED_PAGES[1]: (context) => FeedPageTwo(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
         FEED_PAGES[3]: (context) => FeedPageFour(),
         FEED_PAGES[0]: (context) => FeedPageOne(),
