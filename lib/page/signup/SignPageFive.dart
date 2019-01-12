@@ -13,10 +13,17 @@ class _SignPageFiveState extends State<SignPageFive> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  bool _isSelected = false;
+
+  _selectType(bool isSelected) {
+    setState(() {
+      _isSelected = isSelected;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final double statusbarHeight = MediaQuery.of(context).padding.top;
-    final bool isSelected = false;
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: SignupApbar(
@@ -48,24 +55,36 @@ class _SignPageFiveState extends State<SignPageFive> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Text(
-                              "LOGIN",
-                              style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.5,
-                                wordSpacing: 1.5,
-                                color: Colors.black87,
+                            InkWell(
+                              onTap: () => _selectType(false),
+                              child: Opacity(
+                                opacity: _isSelected ? 0.5 : 1,
+                                child: Text(
+                                  "LOGIN",
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.5,
+                                    wordSpacing: 1.5,
+                                    color: Colors.black87,
+                                  ),
+                                ),
                               ),
                             ),
-                            Text(
-                              "SIGNUP",
-                              style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.5,
-                                wordSpacing: 1.5,
-                                color: Colors.black26,
+                            InkWell(
+                              onTap: () => _selectType(true),
+                              child: Opacity(
+                                opacity: _isSelected ? 1 : 0.5,
+                                child: Text(
+                                  "SIGNUP",
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.5,
+                                    wordSpacing: 1.5,
+                                    color: Colors.black87,
+                                  ),
+                                ),
                               ),
                             ),
                           ],
