@@ -12,7 +12,8 @@ class SignPageFive extends StatefulWidget {
 class _SignPageFiveState extends State<SignPageFive> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-
+  int widgetIndex = 0;
+  PageController _pageController;
   bool _isSelected = false;
 
   _selectType(bool isSelected) {
@@ -22,10 +23,24 @@ class _SignPageFiveState extends State<SignPageFive> {
   }
 
   @override
+  void initState() {
+    _pageController.addListener(() {
+      setState(() {
+        widgetIndex = _pageController.page.ceil();
+      });
+    });
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final double statusbarHeight = MediaQuery.of(context).padding.top;
+    List<Widget> widgets = [
+      loginColumn(),
+      loginColumn(),
+    ];
+
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       appBar: SignupApbar(
         title: "LOGIN",
       ),
@@ -38,140 +53,172 @@ class _SignPageFiveState extends State<SignPageFive> {
               gradient: SIGNUP_BACKGROUND,
             ),
           ),
-          Stack(
-            children: <Widget>[
-              Column(
+          SingleChildScrollView(
+            child: Container(
+              child: Stack(
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(
-                      top: 80,
-                      left: 70,
-                    ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            InkWell(
-                              onTap: () => _selectType(false),
-                              child: Opacity(
-                                opacity: _isSelected ? 0.5 : 1,
-                                child: Text(
-                                  "LOGIN",
-                                  style: TextStyle(
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1.5,
-                                    wordSpacing: 1.5,
-                                    color: Colors.black87,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () => _selectType(true),
-                              child: Opacity(
-                                opacity: _isSelected ? 1 : 0.5,
-                                child: Text(
-                                  "SIGNUP",
-                                  style: TextStyle(
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1.5,
-                                    wordSpacing: 1.5,
-                                    color: Colors.black87,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
                         Container(
-                          height: MediaQuery.of(context).size.height / 2 + 50,
-                          width: double.infinity,
-                          child: Stack(
+                          margin: EdgeInsets.only(
+                            top: 80,
+                            left: 70,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: <Widget>[
-                              Container(
-                                height: MediaQuery.of(context).size.height / 2,
-                                width: double.infinity,
-                                padding: EdgeInsets.all(30),
-                                decoration: BoxDecoration(
-                                  gradient: SIGNUP_CARD_BACKGROUND,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(
-                                      15,
-                                    ),
-                                    bottomLeft: Radius.circular(
-                                      15,
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  InkWell(
+                                    onTap: () {
+                                      _selectType(false);
+                                      _pageController.previousPage(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.bounceInOut,
+                                      );
+                                    },
+                                    child: Opacity(
+                                      opacity: _isSelected ? 0.5 : 1,
+                                      child: Text(
+                                        "LOGIN",
+                                        style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1.5,
+                                          wordSpacing: 1.5,
+                                          color: Colors.black87,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                  color: Colors.red,
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Welcome",
-                                      style: TextStyle(
-                                        fontSize: 40,
-                                        fontWeight: FontWeight.w400,
-                                        wordSpacing: 2,
-                                        letterSpacing: 2,
+                                  InkWell(
+                                    onTap: () {
+                                      _pageController.nextPage(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInBack,
+                                      );
+                                      _selectType(true);
+                                    },
+                                    child: Opacity(
+                                      opacity: _isSelected ? 1 : 0.5,
+                                      child: Text(
+                                        "SIGNUP",
+                                        style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1.5,
+                                          wordSpacing: 1.5,
+                                          color: Colors.black87,
+                                        ),
                                       ),
                                     ),
-                                    Text(
-                                      "back!",
-                                      style: TextStyle(
-                                        fontSize: 40,
-                                        fontWeight: FontWeight.w400,
-                                        wordSpacing: 2,
-                                        letterSpacing: 2,
-                                      ),
-                                    ),
-                                    Expanded(child: Container()),
-                                    emailTextFieldWidget(),
-                                    SizedBox(
-                                      height: 1.5,
-                                      child: Container(
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: passwordTextFieldWidget(),
-                                    ),
-                                    Text(
-                                      "NEXT",
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    )
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              Positioned(
-                                bottom: 25,
-                                left: 30,
-                                child: SignUpArrowButton(
-                                  icon: IconData(
-                                    arrow_right,
-                                    fontFamily: "Icons",
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Container(
+                                    height:
+                                        MediaQuery.of(context).size.height / 2,
+                                    width: double.infinity,
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Container(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                2,
+                                            width: double.infinity,
+                                            padding: EdgeInsets.all(30),
+                                            decoration: BoxDecoration(
+                                              gradient: SIGNUP_CARD_BACKGROUND,
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(
+                                                  15,
+                                                ),
+                                                bottomLeft: Radius.circular(
+                                                  15,
+                                                ),
+                                              ),
+                                            ),
+                                            child: PageView.builder(
+                                              controller: _pageController,
+                                              itemBuilder: (context, index) {
+                                                return widgets[index];
+                                              },
+                                              physics: BouncingScrollPhysics(),
+                                              itemCount: widgets.length,
+                                              scrollDirection: Axis.horizontal,
+                                            )),
+                                      ],
+                                    ),
                                   ),
-                                  iconSize: 10,
-                                  onTap: () => print("Login tapped"),
-                                ),
+                                  Container(
+                                    height: 20,
+                                    margin: EdgeInsets.only(
+                                      left: 15,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color:
+                                              Colors.white70.withOpacity(0.3),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 20,
+                                    margin: EdgeInsets.only(
+                                      left: 30,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color:
+                                              Colors.white70.withOpacity(0.2),
+                                          blurRadius: 2,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 20,
+                                    margin: EdgeInsets.only(
+                                      left: 45,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color:
+                                              Colors.white54.withOpacity(0.2),
+                                          blurRadius: 8,
+                                          offset: Offset(0, 3),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -179,12 +226,72 @@ class _SignPageFiveState extends State<SignPageFive> {
                       ],
                     ),
                   ),
+                  Positioned(
+                    bottom: 35,
+                    left: 97,
+                    child: SignUpArrowButton(
+                      icon: IconData(
+                        arrow_right,
+                        fontFamily: "Icons",
+                      ),
+                      iconSize: 10,
+                      onTap: () => print("Login tapped"),
+                    ),
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
         ],
       ),
+    );
+  }
+
+  Column loginColumn() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          "Welcome",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w400,
+            wordSpacing: 2,
+            letterSpacing: 2,
+          ),
+        ),
+        Text(
+          "back!",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w400,
+            wordSpacing: 2,
+            letterSpacing: 2,
+          ),
+        ),
+        Expanded(child: Container()),
+        emailTextFieldWidget(),
+        SizedBox(
+          height: 1.5,
+          child: Container(
+            color: Colors.black,
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child: passwordTextFieldWidget(),
+        ),
+        Text(
+          "NEXT",
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 15,
+        )
+      ],
     );
   }
 
