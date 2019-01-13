@@ -24,11 +24,7 @@ class _SignPageFiveState extends State<SignPageFive> {
 
   @override
   void initState() {
-    _pageController.addListener(() {
-      setState(() {
-        widgetIndex = _pageController.page.ceil();
-      });
-    });
+    _pageController = PageController();
 
     super.initState();
   }
@@ -37,7 +33,7 @@ class _SignPageFiveState extends State<SignPageFive> {
   Widget build(BuildContext context) {
     List<Widget> widgets = [
       loginColumn(),
-      loginColumn(),
+      sigNupColumn(),
     ];
 
     return Scaffold(
@@ -78,8 +74,8 @@ class _SignPageFiveState extends State<SignPageFive> {
                                     onTap: () {
                                       _selectType(false);
                                       _pageController.previousPage(
-                                        duration: Duration(milliseconds: 200),
-                                        curve: Curves.bounceInOut,
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.easeInBack,
                                       );
                                     },
                                     child: Opacity(
@@ -99,7 +95,7 @@ class _SignPageFiveState extends State<SignPageFive> {
                                   InkWell(
                                     onTap: () {
                                       _pageController.nextPage(
-                                        duration: Duration(milliseconds: 200),
+                                        duration: Duration(milliseconds: 300),
                                         curve: Curves.easeInBack,
                                       );
                                       _selectType(true);
@@ -244,6 +240,54 @@ class _SignPageFiveState extends State<SignPageFive> {
           ),
         ],
       ),
+    );
+  }
+
+  Column sigNupColumn() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          "Welcome",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w400,
+            wordSpacing: 2,
+            letterSpacing: 2,
+          ),
+        ),
+        Text(
+          "Sign In!",
+          style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.w400,
+            wordSpacing: 2,
+            letterSpacing: 2,
+          ),
+        ),
+        Expanded(child: Container()),
+        emailTextFieldWidget(),
+        SizedBox(
+          height: 1.5,
+          child: Container(
+            color: Colors.black,
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child: passwordTextFieldWidget(),
+        ),
+        Text(
+          "NEXT",
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 15,
+        )
+      ],
     );
   }
 
