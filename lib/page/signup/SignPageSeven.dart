@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_nice/const/gradient_const.dart';
+import 'package:flutter_ui_nice/const/icons.dart';
 import 'package:flutter_ui_nice/const/size_const.dart';
+import 'package:flutter_ui_nice/page/signup/widgets/signup_arrow_button.dart';
 import 'dart:async';
 import 'package:google_places_picker/google_places_picker.dart';
 import 'package:intl/intl.dart';
@@ -17,6 +19,22 @@ class _SignPageSevenState extends State<SignPageSeven> {
   String _currentCountry = "Germany";
   String _currentState = "Hessen";
   Place _place;
+  int widgetIndex = 0;
+  PageController _pageController;
+  bool _isSelected = true;
+  _selectType(bool isSelected) {
+    setState(() {
+      _isSelected = isSelected;
+    });
+  }
+
+  @override
+  void initState() {
+    _pageController = PageController();
+
+    super.initState();
+  }
+
   void changeDropDownCountryItem(String selectedCountry) {
     setState(() {
       _currentCountry = selectedCountry;
@@ -53,6 +71,10 @@ class _SignPageSevenState extends State<SignPageSeven> {
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
+    List<Widget> widgets = [
+      buildLoginArea(context),
+      buildLoginArea(context),
+    ];
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -72,19 +94,21 @@ class _SignPageSevenState extends State<SignPageSeven> {
                     height: _media.height,
                     width: _media.width / 2,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            Colors.black.withOpacity(0.05),
-                            Colors.transparent,
-                          ],
-                          begin: FractionalOffset.topCenter,
-                          end: FractionalOffset.bottomCenter,
-                          stops: [0.2, 0.8]),
+                      gradient: _isSelected
+                          ? LinearGradient(
+                              colors: [
+                                Colors.black.withOpacity(0.05),
+                                Colors.transparent,
+                              ],
+                              begin: FractionalOffset.topCenter,
+                              end: FractionalOffset.bottomCenter,
+                              stops: [0.2, 0.8])
+                          : null,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 25.0),
                       child: Opacity(
-                        opacity: 0.5,
+                        opacity: _isSelected ? 0.5 : 1,
                         child: Text(
                           "Log In",
                           style: TextStyle(
@@ -99,10 +123,22 @@ class _SignPageSevenState extends State<SignPageSeven> {
                   Container(
                     height: _media.height,
                     width: _media.width / 2,
+                    decoration: BoxDecoration(
+                      gradient: !_isSelected
+                          ? LinearGradient(
+                              colors: [
+                                Colors.black.withOpacity(0.05),
+                                Colors.transparent,
+                              ],
+                              begin: FractionalOffset.topCenter,
+                              end: FractionalOffset.bottomCenter,
+                              stops: [0.2, 0.8])
+                          : null,
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 25.0),
                       child: Opacity(
-                        opacity: 1,
+                        opacity: _isSelected ? 1 : 0.5,
                         child: Text(
                           "Sign Up",
                           style: TextStyle(
@@ -123,7 +159,7 @@ class _SignPageSevenState extends State<SignPageSeven> {
                       top: 110,
                       left: 50,
                       right: 50,
-                      bottom: 80,
+                      bottom: 60,
                     ),
                     height: _media.height,
                     width: _media.width,
@@ -142,38 +178,129 @@ class _SignPageSevenState extends State<SignPageSeven> {
                         )
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 25.0,
-                        right: 25,
-                        top: 30,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          formTextField("DATE OF BIRTH"),
-                          buildDivider(),
-                          buildDropdown("COUNTRY", _countries, _currentCountry,
-                              changeDropDownCountryItem),
-                          buildDivider(),
-                          buildDropdown("STATE", _states, _currentState,
-                              changeDropDownStateItem),
-                          buildDivider(),
-                          buildCity("CITY", context),
-                          buildDivider(),
-                          buildCity("STREET", context),
-                          buildDivider(),
-                        ],
-                      ),
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemBuilder: (context, index) {
+                        return widgets[index];
+                      },
+                      physics: BouncingScrollPhysics(),
+                      itemCount: widgets.length,
+                      scrollDirection: Axis.horizontal,
                     ),
                   ),
                 ],
               ),
+              Positioned(
+                child: SignUpArrowButton(
+                  onTap: () {
+                    _pageController.previousPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInBack,
+                    );
+                    _selectType(true);
+                  },
+                  iconSize: 9,
+                  icon: IconData(
+                    arrow_left,
+                    fontFamily: "Icons",
+                  ),
+                ),
+                bottom: 80,
+                left: 25,
+              ),
+              Positioned(
+                child: SignUpArrowButton(
+                  onTap: () {
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInBack,
+                    );
+                    _selectType(false);
+                  },
+                  iconSize: 9,
+                  icon: IconData(
+                    arrow_right,
+                    fontFamily: "Icons",
+                  ),
+                ),
+                bottom: 80,
+                right: 25,
+              ),
+              Positioned(
+                child: Text(
+                  "2/3",
+                  style: TextStyle(
+                    letterSpacing: 2.0,
+                    color: Color(0xff353535),
+                  ),
+                ),
+                bottom: 80,
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Padding buildLoginArea(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 25.0,
+        right: 25,
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          formTextField("DATE OF BIRTH"),
+          buildDivider(),
+          buildDropdown("COUNTRY", _countries, _currentCountry,
+              changeDropDownCountryItem),
+          buildDivider(),
+          buildDropdown(
+              "STATE", _states, _currentState, changeDropDownStateItem),
+          buildDivider(),
+          buildCity("CITY", context),
+          buildDivider(),
+          buildStreet("STREET", context),
+          buildDivider(),
+        ],
+      ),
+    );
+  }
+
+  Widget buildStreet(String text, BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w500,
+            color: Colors.black26,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0, bottom: 20),
+          child: InkWell(
+            onTap: () => _selectPlace(context),
+            child: Text(
+              _place != null ? _place.name : 'Ostendstr. 27',
+              style: TextStyle(
+                  letterSpacing: 2.0,
+                  color: Color(0xff353535),
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Montserrat'),
+              overflow: TextOverflow.fade,
+            ),
+          ),
+        )
+      ],
     );
   }
 
@@ -185,7 +312,7 @@ class _SignPageSevenState extends State<SignPageSeven> {
         Text(
           text,
           style: TextStyle(
-            fontSize: 10.5,
+            fontSize: 11,
             fontWeight: FontWeight.w500,
             color: Colors.black26,
           ),
@@ -218,7 +345,7 @@ class _SignPageSevenState extends State<SignPageSeven> {
         Text(
           text,
           style: TextStyle(
-            fontSize: 10.5,
+            fontSize: 11,
             fontWeight: FontWeight.w500,
             color: Colors.black26,
           ),
@@ -258,7 +385,7 @@ class _SignPageSevenState extends State<SignPageSeven> {
         Text(
           text,
           style: TextStyle(
-            fontSize: 10.5,
+            fontSize: 11,
             fontWeight: FontWeight.w500,
             color: Colors.black26,
           ),

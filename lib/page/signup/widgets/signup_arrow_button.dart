@@ -6,13 +6,16 @@ class SignUpArrowButton extends StatelessWidget {
   final double iconSize;
   final double height;
   final double width;
+  final Color iconColor;
 
-  SignUpArrowButton(
-      {this.icon,
-      this.iconSize,
-      this.onTap,
-      this.height = 50.0,
-      this.width = 50.0});
+  SignUpArrowButton({
+    this.icon,
+    this.iconSize,
+    this.onTap,
+    this.height = 50.0,
+    this.width = 50.0,
+    this.iconColor = const Color(0xFFdbedb0),
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,7 @@ class SignUpArrowButton extends StatelessWidget {
         child: Icon(
           icon,
           size: iconSize,
-          color: Colors.white,
+          color: iconColor,
         ),
       ),
     );
