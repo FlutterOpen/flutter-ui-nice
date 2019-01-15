@@ -49,6 +49,16 @@ const FEED_PAGES = [
   "Feed page 01",
   "Feed page 02",
   "Feed page 03",
+  "Feed page 04",
+  "Feed page 05",
+  "Feed page 06",
+  "Feed page 07",
+  "Feed page 08",
+  "Feed page 09",
+  "Feed page 10",
+  "Feed page 11",
+  "Feed page 12",
+  "Feed page 13",
 
   /// fixme you could add by your group one name fit one page.
 ];
@@ -63,6 +73,22 @@ const SHOPPING_PAGES = [
   "Shopping page 01",
   "Shopping page 02",
   "Shopping page 03",
+  "Shopping page 04",
+  "Shopping page 05",
+  "Shopping page 06",
+  "Shopping page 07",
+  "Shopping page 08",
+  "Shopping page 09",
+  "Shopping page 10",
+  "Shopping page 11",
+  "Shopping page 12",
+  "Shopping page 13",
+  "Shopping page 14",
+  "Shopping page 15",
+  "Shopping page 16",
+  "Shopping page 17",
+  "Shopping page 18",
+  "Shopping page 19",
 
   /// fixme you could add by your group one name fit one page.
 ];

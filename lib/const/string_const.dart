@@ -7,7 +7,7 @@
 
 class StringConst {
   //strings
-  static const String APP_NAME = "Flutter UI Nice";
+  static const String APP_NAME = "flutter-ui-nice";
   static const String CREATE_BY = "Created By Volunteer";
   static const String DEVELOPER = "Volunteer";
   static const String PROFESSION = "Flutter Developer";

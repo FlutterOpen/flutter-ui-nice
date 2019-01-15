@@ -7,7 +7,7 @@ const LinearGradient SIGNUP_SIX_GOOGLEP_BG = LinearGradient(
 // Add one stop for each color. Stops should increase from 0 to 1
   stops: [0.2, 0.8],
   colors: [
-    LIGHT_RED,
+    SIGNUP_LIGHT_RED,
     Color(0xFFf194a2),
   ],
 );
