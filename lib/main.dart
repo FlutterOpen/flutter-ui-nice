@@ -3,11 +3,13 @@ import 'package:flutter_ui_nice/page/page_const.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageEight.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageFive.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageFour.dart';
+import 'package:flutter_ui_nice/page/signup/SignPageThree.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageEleven.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageSeven.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageSix.dart';
 import 'package:flutter_ui_nice/page/signup/SignPageNine.dart';
 import 'package:flutter_ui_nice/page/signup/SingPageTen.dart';
+
 import 'const/string_const.dart';
 import 'const/color_const.dart';
 import 'const/page_str_const.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
         SIGN_UP_PAGES[1]: (context) => SignPageTwo(),
-        //SIGN_UP_PAGES[2]: (context) => SignPageThird(),
+        SIGN_UP_PAGES[2]: (context) => SignPageThree(),
         SIGN_UP_PAGES[3]: (context) => SignPageFour(),
         SIGN_UP_PAGES[4]: (context) => SignPageFive(),
         SIGN_UP_PAGES[5]: (context) => SignPageSix(),
