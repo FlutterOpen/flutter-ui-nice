@@ -143,23 +143,25 @@ class _SignPageElevenState extends State<SignPageEleven> {
             ),
             Expanded(
               flex: 2,
-              child: DropdownButton<String>(
-                isDense: true,
-                style: TextStyle(
-                  fontSize: TEXT_NORMAL_SIZE,
-                  color: Colors.black,
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  isDense: true,
+                  style: TextStyle(
+                    fontSize: TEXT_NORMAL_SIZE,
+                    color: Colors.black,
+                  ),
+                  isExpanded: true,
+                  onChanged: changeDropDownLocationItem,
+                  items: _locations.map((items) {
+                    return DropdownMenuItem<String>(
+                      value: items,
+                      child: Text(
+                        items,
+                      ),
+                    );
+                  }).toList(),
+                  value: currentLocation,
                 ),
-                isExpanded: true,
-                onChanged: changeDropDownLocationItem,
-                items: _locations.map((items) {
-                  return DropdownMenuItem<String>(
-                    value: items,
-                    child: Text(
-                      items,
-                    ),
-                  );
-                }).toList(),
-                value: currentLocation,
               ),
             ),
           ],
