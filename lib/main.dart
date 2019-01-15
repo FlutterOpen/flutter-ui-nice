@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_nice/page/navigation/navigation1/coordinator.dart';
 import 'package:flutter_ui_nice/page/page_const.dart';
+
 import 'const/string_const.dart';
 import 'const/color_const.dart';
 import 'const/page_str_const.dart';
@@ -17,11 +18,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: StringConst.APP_NAME,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: BLUE, accentColor: TEXT_BLACK_LIGHT),
+      theme: ThemeData(
+          primaryColor: BLUE,
+          accentColor: TEXT_BLACK_LIGHT,
+          fontFamily: 'Montserrat'),
       home: HomePage(),
       routes: {
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
         SIGN_UP_PAGES[1]: (context) => SignPageTwo(),
+        SIGN_UP_PAGES[2]: (context) => SignPageThree(),
+        SIGN_UP_PAGES[3]: (context) => SignPageFour(),
+        SIGN_UP_PAGES[4]: (context) => SignPageFive(),
+        SIGN_UP_PAGES[5]: (context) => SignPageSix(),
+        SIGN_UP_PAGES[6]: (context) => SignPageSeven(),
+        SIGN_UP_PAGES[7]: (context) => SignPageEight(),
+        SIGN_UP_PAGES[8]: (context) => SignPageNine(),
+        SIGN_UP_PAGES[9]: (context) => SignPageTeen(),
+        SIGN_UP_PAGES[10]: (context) => SignPageEleven(),
 
         //PROFILE pages
         PROFILE_PAGES[0]: (context) => ProfilePageOne(),
@@ -40,7 +53,7 @@ class MyApp extends StatelessWidget {
         SHOPPING_PAGES[17]: (context) => ShopPageEighteen(),
         SHOPPING_PAGES[18]: (context) => ShopPageNineteen(),
 
-				NAVIGATION_PAGES[0]: (context) => NavigationOneCoordinator(),
+        NAVIGATION_PAGES[0]: (context) => NavigationOneCoordinator(),
         //FIXME there are other pages to jump with 'page_str_const.dart',there should be make by manager
       },
       onUnknownRoute: (setting) =>
