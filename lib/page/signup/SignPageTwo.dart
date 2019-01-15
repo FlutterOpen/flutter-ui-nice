@@ -21,8 +21,10 @@ class SignPageTwo extends StatelessWidget {
         child: ListView(
           physics: BouncingScrollPhysics(),
           children: <Widget>[
-            ProfileImagePicker(
-              margin: EdgeInsets.only(top: 32.0, left: 32.0, right: 32.0),
+            Center(
+              child: ProfileImagePicker(
+                margin: EdgeInsets.only(top: 32.0, left: 32.0, right: 32.0),
+              ),
             ),
             DatePicker(),
             GenderPicker(),

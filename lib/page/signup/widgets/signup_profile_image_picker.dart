@@ -28,48 +28,46 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: widget.margin,
-        child: Stack(
-          alignment: Alignment.topRight,
-          children: <Widget>[
-            Container(
-              width: 260.0,
-              height: 200.0,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 15,
-                      spreadRadius: 0,
-                      offset: Offset(0.0, 16.0)),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                child: _image != null
-                    ? Image.file(
-                        _image,
-                        fit: BoxFit.contain,
-                      )
-                    : Image.asset(
-                        'assets/images/signup/signup_page_9_profile.png',
-                        fit: BoxFit.fill,
-                      ),
-              ),
+    return Container(
+      margin: widget.margin,
+      child: Stack(
+        alignment: Alignment.topRight,
+        children: <Widget>[
+          Container(
+            width: 260.0,
+            height: 200.0,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 15,
+                    spreadRadius: 0,
+                    offset: Offset(0.0, 16.0)),
+              ],
             ),
-            IconButton(
-              onPressed: () async {
-                await getImage();
-              },
-              icon: Icon(
-                IconData(camera, fontFamily: 'Icons'),
-                color: Color(0xffDBEDAF),
-              ),
-            )
-          ],
-        ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: _image != null
+                  ? Image.file(
+                      _image,
+                      fit: BoxFit.contain,
+                    )
+                  : Image.asset(
+                      'assets/images/signup/signup_page_9_profile.png',
+                      fit: BoxFit.fill,
+                    ),
+            ),
+          ),
+          IconButton(
+            onPressed: () async {
+              await getImage();
+            },
+            icon: Icon(
+              IconData(camera, fontFamily: 'Icons'),
+              color: Color(0xffDBEDAF),
+            ),
+          )
+        ],
       ),
     );
   }
