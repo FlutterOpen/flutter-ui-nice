@@ -19,6 +19,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  image_picker: ^0.4.10
+  intl: ^0.15.7
+  google_places_picker: ^0.0.9
 
 dev_dependencies:
   flutter_test:
@@ -57,8 +60,14 @@ flutter:
           style: italic
         - asset: assets/fonts/montserrat/Montserrat-Light.ttf
           weight: 200
+        - asset: assets/fonts/montserrat/Montserrat-SemiBold.ttf
+          weight: 500
         - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
           weight: 700
+    - family: Icons
+      fonts:
+        - asset: assets/fonts/icons.ttf
+
 
 
   # To add assets to your application, add an assets section, like this:
