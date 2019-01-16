@@ -36,9 +36,9 @@ class _ShopEighteenState extends State<ShopPageEighteen> {
     GREEN,
   ];
   List<String> imageurl = <String>[
-    "images/shopping/paypal.png",
-    "images/shopping/visa.png",
-    "images/shopping/apple_pay.png"
+    "assets/images/shopping/paypal.png",
+    "assets/images/shopping/visa.png",
+    "assets/images/shopping/apple_pay.png"
   ];
 
   Widget floatingTextFieldWidget(name, topmargin) {

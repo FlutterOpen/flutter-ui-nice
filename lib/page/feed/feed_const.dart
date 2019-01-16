@@ -21,7 +21,7 @@ const TEXT_SMALL_2_SIZE = 22.0;
 const TEXT_SMALL_3_SIZE = 24.0;
 
 class FeedImage {
-  static const IMAGE_PATH = "images/feed";
+  static const IMAGE_PATH = "assets/images/feed";
   static const more_circle = "$IMAGE_PATH/feed_more.png";
   static const search_circle = "$IMAGE_PATH/feed_search.png";
   static const white_back = "$IMAGE_PATH/white_background.png";

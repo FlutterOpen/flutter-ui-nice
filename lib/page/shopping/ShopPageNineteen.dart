@@ -114,7 +114,7 @@ class _ShopNineteenState extends State<ShopPageNineteen> {
                             Opacity(
                               opacity: 0.5,
                               child: Image.asset(
-                                "images/shopping/background.jpg",
+                                "assets/images/shopping/background.jpg",
                                 fit: BoxFit.cover,
                               ),
                             ),
