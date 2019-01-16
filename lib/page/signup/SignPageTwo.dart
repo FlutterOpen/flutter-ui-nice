@@ -1,23 +1,40 @@
-///
-/// Created by NieBin on 2018/12/25
-/// Github: https://github.com/nb312
-/// Email: niebin312@gmail.com
-///
 import "package:flutter/material.dart";
 
-class SignPageTwo extends StatefulWidget {
-  @override
-  _SignTwoState createState() => _SignTwoState();
-}
+import '../../const/gradient_const.dart';
+import 'widgets/date_picker.dart';
+import 'widgets/gender_picker.dart';
+import 'widgets/location_picker.dart';
+import 'widgets/signup_apbar.dart';
+import 'widgets/signup_profile_image_picker.dart';
+import 'widgets/signup_button.dart';
 
-class _SignTwoState extends State<SignPageTwo> {
+class SignPageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign up two"),
+      appBar: SignupApbar(
+        title: 'CREATE ACCOUNT',
       ),
-      body: Text("Sign up page two"),
+      body: Container(
+        padding: EdgeInsets.only(top: 64.0),
+        decoration: BoxDecoration(gradient: SIGNUP_BACKGROUND),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: <Widget>[
+            Center(
+              child: ProfileImagePicker(
+                margin: EdgeInsets.only(top: 32.0, left: 32.0, right: 32.0),
+              ),
+            ),
+            DatePicker(),
+            GenderPicker(),
+            LocationPicker(),
+            Container(
+                margin: EdgeInsets.only(top: 32.0),
+                child: Center(child: signupButton('NEXT')))
+          ],
+        ),
+      ),
     );
   }
 }

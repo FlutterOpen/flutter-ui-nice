@@ -9,6 +9,13 @@ const SIGN_UP_PAGES = [
   "Sign up page 02",
   "Sign up page 03",
   "Sign up page 04",
+  "Sign up page 05",
+  "Sign up page 06",
+  "Sign up page 07",
+  "Sign up page 08",
+  "Sign up page 09",
+  "Sign up page 10",
+  "Sign up page 11",
 
   /// fixme you could add by your group one name fit one page.
 ];

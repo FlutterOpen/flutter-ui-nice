@@ -8,6 +8,7 @@ export "empty_page.dart";
 export 'signup/SignPageOne.dart';
 export 'signup/SignPageTwo.dart';
 
+
 //PROFILE pages
 export 'profile/ProfilePageOne.dart';
 
@@ -21,3 +22,7 @@ export 'feed/FeedPageThirteen.dart';
 
 export 'shopping/ShopPageEighteen.dart';
 export 'shopping/ShopPageNineteen.dart';
+
+export 'signup/SignPageFour.dart';
+export 'signup/SignPageEleven.dart';
+

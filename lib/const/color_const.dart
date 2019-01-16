@@ -18,3 +18,4 @@ const GREEN = Color(0xffc7e5b4);
 const RED_LIGHT = Color(0xffFFC3A0);
 const TEXT_BLACK = Color(0xFF353535);
 const TEXT_BLACK_LIGHT = Color(0xFF34323D);
+const LIGHT_RED = Color(0xffffc2a1);
