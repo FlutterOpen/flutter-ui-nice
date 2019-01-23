@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
         expandedHeight: 150.0,
         flexibleSpace: FlexibleSpaceBar(
           title: Padding(
-            padding: EdgeInsets.only(top: 10.0),
+            padding: EdgeInsets.only(top: 30.0),
             child: Row(
               children: <Widget>[
                 Image.asset(

@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Select Profile Photo</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Select Profile Photo</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Its required because we are accessing the camera, but we will never use the microphone</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

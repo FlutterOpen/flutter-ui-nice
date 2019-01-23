@@ -1,9 +1,16 @@
 # flutter-ui-nice
 ### :heart: Star :heart: the repo to support the project or :smile:[Follow Me](https://github.com/nb312).Thanks!
-**The project is developing,do not complete** please wait. 
-This project will comply with many people.
-If you interest in this project please let me know.[My Facebook](https://www.facebook.com/profile.php?id=100018259667795)
+Facebook Page | Twitter | Medium |  QQ Group
+--- | --- | --- | ---
+[Flutter Open ](https://www.facebook.com/flutteropen) | [NieBin](https://twitter.com/niebin_gg)  | [Flutter Open](https://medium.com/flutteropen) | 963828159
 
+# Contributors
+~ | ~ | ~ | ~ | ~
+--- | --- | --- | --- | --- 
+[NieBin](https://github.com/nb312)| [Echonox](https://github.com/echonox) | [Mahesh Jamdade](https://github.com/maheshmnj) |[edgartrem](https://github.com/edgartrem) | [srikanthbollojula](https://github.com/srikanthbollojula) 
+ | [Yasin ilhan](https://github.com/kalismeras61) | [Çağrı Akgül](https://github.com/saturu) | [dndoanh](https://github.com/dndoanh) | [Waffulz](https://github.com/Waffulz) | [Santosh Prasad Sah](https://github.com/SahSantoshh)
+
+# Contents
 <img src="doc/01-signup-no.jpg"/>
 
 <img src="doc/02-walk_through-no.jpg"/>

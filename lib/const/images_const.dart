@@ -6,7 +6,7 @@
 
 class ImagePath {
   //images
-  static const String imageDir = "images";
+  static const String imageDir = "assets/images";
   static const String pkImage = "$imageDir/pk.jpg";
   static const String profileImage = "$imageDir/ui.profile.jpg";
   static const String blankImage = "$imageDir/blank.jpg";
@@ -21,7 +21,7 @@ class ImagePath {
 }
 
 class MainImagePath {
-  static const String image_path = "images/main";
+  static const String image_path = "assets/images/main";
   static const String image_app = "$image_path/ic_launcher.png";
   static const String image_header = "$image_path/pic04.png";
   static const String image_sign_up = "$image_path/pic03.png";
@@ -34,4 +34,12 @@ class MainImagePath {
   static const String image_statistic = "$image_path/pic10.png";
   static const String image_media = "$image_path/pic11.png";
   static const String image_camera = "$image_path/pic01.png";
+}
+
+class SignUpImagePath {
+  static const String image_path = "assets/images/signup";
+  static const String SignUpLogo = "$image_path/logo_signup.png";
+  static const String SignUpPage_11_Bg = "$image_path/signup_page_11_bg.png";
+  static const String SignUpPage_6_Bg = "$image_path/signup_page_6_bg.png";
+  static const String SignUpPage_8_Bg = "$image_path/signup_page_8_bg.png";
 }

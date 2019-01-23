@@ -34,7 +34,7 @@ const TEXT_SIZE_M = 26.0;
 const TEXT_SIZE_S = 24.0;
 
 class ProfileImages {
-  static const IMAGE_PATH = "images/profile";
+  static const IMAGE_PATH = "assets/images/profile";
   static const arrow_left = "$IMAGE_PATH/profile_arrow_left.png";
   static const avatar = "$IMAGE_PATH/profile_avatar.png";
   static const follow = "$IMAGE_PATH/profile_follow.png";
