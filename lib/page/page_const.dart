@@ -21,6 +21,7 @@ export 'signup/SingPageTen.dart';
 
 //PROFILE pages
 export 'profile/ProfilePageOne.dart';
+export 'profile/ProfilePageTwo.dart';
 
 export 'feed/FeedPageFour.dart';
 export 'feed/FeedPageOne.dart';

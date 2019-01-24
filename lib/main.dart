@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         //PROFILE pages
         PROFILE_PAGES[0]: (context) => ProfilePageOne(),
+        PROFILE_PAGES[1]: (context) => ProfilePageTwo(),
 
         SIGN_UP_PAGES[0]: (context) => SignPageOne(),
         SIGN_UP_PAGES[1]: (context) => SignPageTwo(),
