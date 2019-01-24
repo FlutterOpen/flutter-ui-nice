@@ -196,6 +196,7 @@ class _ProfileState extends State<ProfilePageOne> {
           children: <Widget>[
             TopBar(
               leftIcon: ProfileImages.arrow_left,
+              title: ProfileStrings.STRING_PROFILE,
               onLeftIconPressed: () => Navigator.pop(context),
             ),
             Expanded(

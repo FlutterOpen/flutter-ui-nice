@@ -22,7 +22,7 @@ class ImagePath {
 
 class MainImagePath {
   static const String image_path = "assets/images/main";
-  static const String image_app = "$image_path/ic_launcher.png";
+  static const String image_app = "assets/images/media/ic_launcher.png";
   static const String image_header = "$image_path/pic04.png";
   static const String image_sign_up = "$image_path/pic03.png";
   static const String image_walk_through = "$image_path/pic01.png";

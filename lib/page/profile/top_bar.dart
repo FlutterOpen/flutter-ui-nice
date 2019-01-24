@@ -12,11 +12,13 @@ class TopBar extends StatelessWidget {
   TopBar(
       {this.leftIcon,
       this.rightIcon,
+      this.title,
       this.onLeftIconPressed,
       this.onRightIconPressed});
 
   final String leftIcon;
   final String rightIcon;
+  final String title;
   final Function() onLeftIconPressed;
   final Function() onRightIconPressed;
 
@@ -55,7 +57,7 @@ class TopBar extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(top: SizeUtil.getAxisY(30.0)),
               child: Text(
-                ProfileStrings.STRING_NAME,
+                this.title.toUpperCase(),
                 style: TextStyle(
                     color: TEXT_BLACK,
                     fontSize: SizeUtil.getAxisBoth(TEXT_SIZE_L),
