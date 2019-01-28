@@ -23,9 +23,10 @@ export 'signup/SingPageTen.dart';
 export 'profile/ProfilePageOne.dart';
 export 'profile/ProfilePageTwo.dart';
 
-export 'feed/FeedPageFour.dart';
 export 'feed/FeedPageOne.dart';
 export 'feed/FeedPageTwo.dart';
+export 'feed/FeedPageFour.dart';
+export 'feed/feed_five_page.dart';
 export 'feed/FeedPageTen.dart';
 export 'feed/FeedPageEleven.dart';
 export 'feed/FeedPageTwelve.dart';
