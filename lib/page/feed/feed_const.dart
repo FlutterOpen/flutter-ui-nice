@@ -47,6 +47,10 @@ class FeedImage {
   static const feed2_image1 = "$IMAGE_PATH/feed2_image1.png";
   static const feed2_image2 = "$IMAGE_PATH/feed2_image2.png";
   static const heart = "$IMAGE_PATH/heart.png";
+
+  //Image for feed 5;
+  static const feed5_pic_01 = "$IMAGE_PATH/feed_pic5_01.jpg";
+
   //feed 13
   static const feed13_header1 = "$IMAGE_PATH/feed13_header1.png";
   static const feed13_header2 = "$IMAGE_PATH/feed13_header2.png";
