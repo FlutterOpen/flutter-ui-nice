@@ -50,7 +50,6 @@ Icon chatIcon = Icon(Icons.chat);
 Icon shareIcon = Icon(Icons.share);
 
 class _FeedPageFourState extends State<FeedPageFour> {
-
   Widget _cardAction(Icon icon, int number) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
@@ -129,58 +128,50 @@ class _FeedPageFourState extends State<FeedPageFour> {
     );
   }
 
-
-  Widget timeText () => Container(
-    width: double.infinity,
-    margin: EdgeInsets.all(20),
-    child: Text(
-      cardConsts[0]['time'],
-      textAlign: TextAlign.right,
-      style: TextStyle(
-          color: Colors.black38,
-          fontSize: SizeUtil.getAxisBoth(TEXT_SMALL_2_SIZE)
-      ),
-    ),
-  );
-
-  Widget descriptionText () => Container(
-    margin: EdgeInsets.symmetric(horizontal: 20),
-    child: RichText(
-      text: TextSpan(
-          text: '${cardConsts[0]['author']} ',
+  Widget timeText() => Container(
+        width: double.infinity,
+        margin: EdgeInsets.all(20),
+        child: Text(
+          cardConsts[0]['time'],
+          textAlign: TextAlign.right,
           style: TextStyle(
-              fontSize: SizeUtil.getAxisBoth(TEXT_NORMAL_SIZE),
-              fontWeight: FontWeight.bold,
-              color: TEXT_BLACK
-          ),
-          children: <TextSpan> [
-            TextSpan(
-                text: cardConsts[0]['action'],
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: TEXT_BLACK_LIGHT
-                )
+              color: Colors.black38,
+              fontSize: SizeUtil.getAxisBoth(TEXT_SMALL_2_SIZE)),
+        ),
+      );
+
+  Widget descriptionText() => Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: RichText(
+          text: TextSpan(
+              text: '${cardConsts[0]['author']} ',
+              style: TextStyle(
+                  fontSize: SizeUtil.getAxisBoth(TEXT_NORMAL_SIZE),
+                  fontWeight: FontWeight.bold,
+                  color: TEXT_BLACK),
+              children: <TextSpan>[
+                TextSpan(
+                    text: cardConsts[0]['action'],
+                    style: TextStyle(
+                        fontWeight: FontWeight.normal, color: TEXT_BLACK_LIGHT))
+              ]),
+        ),
+      );
+
+  Widget _socialAction(Icon icon, String number) => Container(
+        child: Row(
+          children: <Widget>[
+            icon,
+            SizedBox(width: 7),
+            Text(
+              '$number',
+              style: TextStyle(
+                  color: Colors.black45,
+                  fontSize: SizeUtil.getAxisBoth(TEXT_SMALL_2_SIZE)),
             )
-          ]
-      ),
-    ),
-  );
-
-  Widget _socialAction (Icon icon, String number) => Container(
-    child: Row(
-      children: <Widget>[
-        icon,
-        SizedBox(width: 7),
-        Text(
-          '$number',
-          style: TextStyle(
-            color: Colors.black45,
-            fontSize: SizeUtil.getAxisBoth(TEXT_SMALL_2_SIZE)
-          ),
-        )
-      ],
-    ),
-  );
+          ],
+        ),
+      );
 
   Widget _socialActionRow() {
     return Container(
@@ -200,9 +191,7 @@ class _FeedPageFourState extends State<FeedPageFour> {
     return Column(
       children: <Widget>[
         timeText(),
-        Expanded(
-            child: descriptionText()
-        ),
+        Expanded(child: descriptionText()),
         _socialActionRow()
       ],
     );
@@ -225,20 +214,18 @@ class _FeedPageFourState extends State<FeedPageFour> {
 
   Widget _avatarCard() {
     return Positioned(
-      top: deviceHeight * 0.027,
-      left: deviceWidth * 0.2,
-      child: Container(
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
-          image: DecorationImage(
-            image: AssetImage(cardConsts[0]['avatar_image'])
+        top: deviceHeight * 0.027,
+        left: deviceWidth * 0.2,
+        child: Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(7),
+            image: DecorationImage(
+                image: AssetImage(cardConsts[0]['avatar_image'])),
+            boxShadow: SHADOW,
           ),
-          boxShadow: SHADOW,
-        ),
-      )
-    );
+        ));
   }
 
   Widget _imagesCard() {
@@ -249,9 +236,55 @@ class _FeedPageFourState extends State<FeedPageFour> {
         height: 250,
         width: 370,
         decoration: BoxDecoration(
-          color: Colors.red,
           borderRadius: BorderRadius.circular(22),
           boxShadow: SHADOW,
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      constraints: BoxConstraints.expand(),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.only(topLeft: Radius.circular(20)),
+                          boxShadow: SHADOW,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(FeedImage.shop_river))),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      constraints: BoxConstraints.expand(),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20)),
+                          boxShadow: SHADOW,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(FeedImage.city))),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                constraints: BoxConstraints.expand(),
+                child: Image.asset(
+                  FeedImage.feed12_pic1,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -259,11 +292,7 @@ class _FeedPageFourState extends State<FeedPageFour> {
 
   Widget _stackClipperCard() {
     return Stack(
-      children: <Widget>[
-        _pinkCard(),
-        _avatarCard(),
-        _imagesCard()
-      ],
+      children: <Widget>[_pinkCard(), _avatarCard(), _imagesCard()],
     );
   }
 
@@ -273,6 +302,7 @@ class _FeedPageFourState extends State<FeedPageFour> {
         SizedBox(
           height: 100,
         ),
+        _stackClipperCard(),
         _stackClipperCard(),
       ],
     );
