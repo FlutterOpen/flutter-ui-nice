@@ -9,6 +9,7 @@ import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/page/feed/feed_const.dart';
 import 'package:flutter_ui_nice/page/feed/top_title.dart';
 import 'package:flutter_ui_nice/util/SizeUtil.dart';
+import 'package:flutter_ui_nice/util/GradientUtil.dart';
 
 class FeedPageTwo extends StatefulWidget {
   @override
@@ -89,7 +90,8 @@ class _FeedState extends State<FeedPageTwo> {
                         height: SizeUtil.getAxisY(110.0),
                         width: SizeUtil.getAxisX(603.0)),
                     decoration: BoxDecoration(
-                        color: RED, borderRadius: BorderRadius.circular(10.0)),
+                        borderRadius: BorderRadius.circular(10.0),
+                        gradient: GradientUtil.red()),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -103,7 +105,7 @@ class _FeedState extends State<FeedPageTwo> {
                                 size: TEXT_SMALL_SIZE,
                                 isBold: true),
                           ),
-                          Container(                            
+                          Container(
                             padding: EdgeInsets.all(10.0),
                             width: 70.0,
                             child: _textBack("127 LIKES",
@@ -120,9 +122,8 @@ class _FeedState extends State<FeedPageTwo> {
                 bottom: SizeUtil.getAxisY(70.0),
                 right: SizeUtil.getAxisX(0.0),
                 child: Image.asset(FeedImage.heart,
-                      width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
-                      height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT))
-            ),
+                    width: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT),
+                    height: SizeUtil.getAxisY(CIRCLE_BUTTON_HEIGHT))),
           ],
         ),
       ));

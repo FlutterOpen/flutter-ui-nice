@@ -9,6 +9,7 @@ import 'package:flutter_ui_nice/const/color_const.dart';
 import 'package:flutter_ui_nice/page/feed/feed_const.dart';
 import 'package:flutter_ui_nice/page/feed/top_title.dart';
 import 'package:flutter_ui_nice/util/SizeUtil.dart';
+import 'package:flutter_ui_nice/util/GradientUtil.dart';
 
 class FeedPageOne extends StatefulWidget {
   @override
@@ -123,7 +124,8 @@ class _FeedState extends State<FeedPageOne> {
                         height: SizeUtil.getAxisY(110.0),
                         width: SizeUtil.getAxisX(603.0)),
                     decoration: BoxDecoration(
-                        color: RED, borderRadius: BorderRadius.circular(10.0)),
+                        borderRadius: BorderRadius.circular(10.0),
+                        gradient: GradientUtil.red()),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -162,11 +164,10 @@ class _FeedState extends State<FeedPageOne> {
                         ],
                       ),
                     ),
-                  ), 
+                  ),
                 ],
               ),
             ),
-           
           ],
         ),
       ));
@@ -177,7 +178,8 @@ class _FeedState extends State<FeedPageOne> {
             children: <Widget>[
               _listItem(index),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 40.0, vertical: 10.0),
                 child: Divider(color: Colors.black87),
               )
             ],
