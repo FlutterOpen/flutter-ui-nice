@@ -109,14 +109,19 @@ class FeedThreePage extends StatefulWidget {
 
 class _FeedThreeState extends State<FeedThreePage> {
   Widget _left() => Container(
-        padding: EdgeInsets.only(
+        margin: EdgeInsets.only(
           top: SizeUtil.getAxisY(67),
           left: SizeUtil.getAxisX(22),
         ),
-        child: Image.asset(
-          FeedImage.FEED_3_PIC_LEFT,
-          height: SizeUtil.getAxisBoth(90),
-          width: SizeUtil.getAxisBoth(90),
+        height: SizeUtil.getAxisBoth(100),
+        width: SizeUtil.getAxisBoth(100),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                FeedImage.FEED_3_PIC_LEFT,
+              ),
+              fit: BoxFit.cover),
+          shape: BoxShape.circle,
         ),
       );
 
@@ -364,7 +369,7 @@ class _FeedThreeState extends State<FeedThreePage> {
         decoration: BoxDecoration(gradient: GradientUtil.yellowBlue()),
         child: Stack(
           children: <Widget>[
-//          _left(),
+            _left(),
             _list(),
           ],
         ),
