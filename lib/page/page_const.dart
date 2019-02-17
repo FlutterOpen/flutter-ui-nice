@@ -31,6 +31,7 @@ export 'feed/FeedPageTen.dart';
 export 'feed/FeedPageEleven.dart';
 export 'feed/FeedPageTwelve.dart';
 export 'feed/FeedPageThirteen.dart';
+export 'feed/feed_three_page.dart';
 
 export 'shopping/ShopPageEighteen.dart';
 export 'shopping/ShopPageNineteen.dart';
