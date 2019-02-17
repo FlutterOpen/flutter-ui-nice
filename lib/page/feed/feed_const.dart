@@ -48,6 +48,15 @@ class FeedImage {
   static const feed2_image2 = "$IMAGE_PATH/feed2_image2.png";
   static const heart = "$IMAGE_PATH/heart.png";
 
+//feed 3
+  static const FEED_3_PIC_01 = "$IMAGE_PATH/feed_pic3_01.jpg";
+  static const FEED_3_PIC_02 = "$IMAGE_PATH/feed_pic3_02.jpg";
+  static const FEED_3_PIC_03 = "$IMAGE_PATH/feed_pic3_03.jpg";
+  static const FEED_3_PIC_HEADER_01 = "$IMAGE_PATH/feed_pic3_header_01.jpg";
+  static const FEED_3_PIC_HEADER_02 = "$IMAGE_PATH/feed_pic3_header_02.jpg";
+  static const FEED_3_PIC_HEADER_03 = "$IMAGE_PATH/feed_pic3_header_03.jpg";
+  static const FEED_3_PIC_LEFT = "$IMAGE_PATH/feed_pic3_left.jpg";
+
   //Image for feed 5;
   static const feed5_pic_01 = "$IMAGE_PATH/feed_pic5_01.jpg";
 
