@@ -12,7 +12,7 @@ class _LocationPickerState extends State<LocationPicker> {
 
   Future _selectPlace(BuildContext context) async {
     try {
-      Place _picker = await PluginGooglePlacePicker.showPlacePicker();
+      Place _picker = await PluginGooglePlacePicker.showAutocomplete();
       setState(() {
         _place = _picker;
       });
