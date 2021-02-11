@@ -62,7 +62,7 @@ class _SignPageSevenState extends State<SignPageSeven> {
 
   Future _selectPlace(BuildContext context) async {
     try {
-      Place _picker = await PluginGooglePlacePicker.showPlacePicker();
+      Place _picker = await PluginGooglePlacePicker.showAutocomplete();
       setState(() {
         _place = _picker;
       });
