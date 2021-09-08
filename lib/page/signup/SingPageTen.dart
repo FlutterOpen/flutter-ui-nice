@@ -37,7 +37,7 @@ class _SignPageTeenState extends State<SignPageTeen>
     ];
 
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       appBar: SignupApbar(
         title: "CREATE ACCOUNT",
       ),
