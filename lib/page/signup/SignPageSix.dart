@@ -243,7 +243,7 @@ class _SignPageSixState extends State<SignPageSix>
     ];
 
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         overflow: Overflow.visible,
         fit: StackFit.expand,

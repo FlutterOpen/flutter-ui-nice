@@ -99,7 +99,7 @@ class _FeedState extends State<FeedPageOne> {
                     child: Text('+33',
                         style: Theme.of(context)
                             .textTheme
-                            .title
+                            .headline6
                             .copyWith(color: Colors.white)),
                   ),
                 )),
