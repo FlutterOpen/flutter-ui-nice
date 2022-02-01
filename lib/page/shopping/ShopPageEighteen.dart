@@ -58,11 +58,10 @@ class _ShopEighteenState extends State<ShopPageEighteen> {
             prefix: Text(
               name + "        ",
             ),
-            hasFloatingPlaceholder: false,
             hintStyle: TextStyle(color: Colors.white),
             // helperText: 'Keep it short, this is just a demo.',
             labelText: name,
-            labelStyle: TextStyle(color: Colors.black),
+            labelStyle: TextStyle(color: Colors.black), floatingLabelBehavior: FloatingLabelBehavior.never,
             // prefixText: 'Email ',
             // suffixText: 'USD',
             // suffixStyle: const TextStyle(color: Colors.green)

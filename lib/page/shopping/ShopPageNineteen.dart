@@ -39,8 +39,7 @@ class _ShopNineteenState extends State<ShopPageNineteen> {
   Widget textfield(String hint) {
     return TextField(
       decoration: InputDecoration(
-        hasFloatingPlaceholder: false,
-        labelText: hint,
+        labelText: hint, floatingLabelBehavior: FloatingLabelBehavior.never,
       ),
     );
   }
