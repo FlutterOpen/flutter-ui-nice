@@ -1,16 +1,20 @@
 # flutter-ui-nice
+
 ### :heart: Star :heart: the repo to support the project or :smile:[Follow Me](https://github.com/nb312).Thanks!
-Facebook Page | Twitter | Medium |  QQ Group
---- | --- | --- | ---
-[Flutter Open ](https://www.facebook.com/flutteropen) | [NieBin](https://twitter.com/niebin_gg)  | [Flutter Open](https://medium.com/flutteropen) | 963828159
+
+| Facebook Page                                         | Twitter                                 | Medium                                         | QQ Group  |
+| ----------------------------------------------------- | --------------------------------------- | ---------------------------------------------- | --------- |
+| [Flutter Open ](https://www.facebook.com/flutteropen) | [NieBin](https://twitter.com/niebin_gg) | [Flutter Open](https://medium.com/flutteropen) | 963828159 |
 
 # Contributors
-~ | ~ | ~ | ~ | ~
---- | --- | --- | --- | --- 
-[NieBin](https://github.com/nb312)| [Echonox](https://github.com/echonox) | [Mahesh Jamdade](https://github.com/maheshmnj) |[edgartrem](https://github.com/edgartrem) | [srikanthbollojula](https://github.com/srikanthbollojula) 
- | [Yasin ilhan](https://github.com/kalismeras61) | [Çağrı Akgül](https://github.com/saturu) | [dndoanh](https://github.com/dndoanh) | [Waffulz](https://github.com/Waffulz) | [Santosh Prasad Sah](https://github.com/SahSantoshh)
+
+| ~                                              | ~                                        | ~                                              | ~                                         | ~                                                         |
+| ---------------------------------------------- | ---------------------------------------- | ---------------------------------------------- | ----------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------- |
+| [NieBin](https://github.com/nb312)             | [Echonox](https://github.com/echonox)    | [Mahesh Jamdade](https://github.com/maheshmnj) | [edgartrem](https://github.com/edgartrem) | [srikanthbollojula](https://github.com/srikanthbollojula) |
+| [Yasin ilhan](https://github.com/kalismeras61) | [Çağrı Akgül](https://github.com/saturu) | [dndoanh](https://github.com/dndoanh)          | [Waffulz](https://github.com/Waffulz)     | [Santosh Prasad Sah](https://github.com/SahSantoshh)      | [Muhammad Saadullah Shahid](https://github.com/saadii00) |
 
 # Contents
+
 <img src="doc/01-signup-no.jpg"/>
 
 <img src="doc/02-walk_through-no.jpg"/>
@@ -32,6 +36,7 @@ Facebook Page | Twitter | Medium |  QQ Group
 <img src="doc/10-camera-no.jpg"/>
 
 # License
+
 Copyright 2019 @NieBin
 
 Licensed under the Apache License, Version 2.0 (the "License");

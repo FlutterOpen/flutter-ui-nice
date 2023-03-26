@@ -39,7 +39,8 @@ class _ShopNineteenState extends State<ShopPageNineteen> {
   Widget textfield(String hint) {
     return TextField(
       decoration: InputDecoration(
-        labelText: hint, floatingLabelBehavior: FloatingLabelBehavior.never,
+        labelText: hint,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
       ),
     );
   }
@@ -223,14 +224,16 @@ class _ShopNineteenState extends State<ShopPageNineteen> {
                       child: Container(
                         alignment: FractionalOffset.center,
                         height: 80,
-                        child: FlatButton(
-                          color: Color.fromRGBO(7, 7, 7, 1),
-                          textColor: Color.fromRGBO(198, 193, 124, 1),
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(7, 7, 7, 1),
+                            foregroundColor: Color.fromRGBO(198, 193, 124, 1),
+                            padding: EdgeInsets.only(
+                                left: 20, right: 20, top: 8, bottom: 8),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                          ),
                           onPressed: () {},
-                          padding: EdgeInsets.only(
-                              left: 20, right: 20, top: 8, bottom: 8),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
                           child: Text("Pay",
                               style: TextStyle(
                                 fontSize: 20,

@@ -340,7 +340,7 @@ class _SignPageElevenState extends State<SignPageEleven> {
               flex: 2,
               child: Wrap(
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     child: Text(
                       data,
                       style: TextStyle(

@@ -47,11 +47,13 @@ class _ShopEighteenState extends State<ShopPageEighteen> {
       margin: EdgeInsets.only(top: topmargin, left: 10, right: 10),
       child: new Theme(
         data: new ThemeData(
-            primaryColor: Colors.black,
-            primaryColorDark: Colors.blue,
-            highlightColor: Colors.green,
-            textSelectionColor: Colors.blue[100] // text selection color
-            ),
+          primaryColor: Colors.black,
+          primaryColorDark: Colors.blue,
+          highlightColor: Colors.green,
+          textSelectionTheme:
+              TextSelectionThemeData(selectionColor: Colors.blue[100]),
+          // text selection color
+        ),
         child: new TextField(
           decoration: new InputDecoration(
             prefixStyle: TextStyle(color: RED),
@@ -61,7 +63,8 @@ class _ShopEighteenState extends State<ShopPageEighteen> {
             hintStyle: TextStyle(color: Colors.white),
             // helperText: 'Keep it short, this is just a demo.',
             labelText: name,
-            labelStyle: TextStyle(color: Colors.black), floatingLabelBehavior: FloatingLabelBehavior.never,
+            labelStyle: TextStyle(color: Colors.black),
+            floatingLabelBehavior: FloatingLabelBehavior.never,
             // prefixText: 'Email ',
             // suffixText: 'USD',
             // suffixStyle: const TextStyle(color: Colors.green)
@@ -164,14 +167,16 @@ class _ShopEighteenState extends State<ShopPageEighteen> {
                     Container(
                       alignment: FractionalOffset.topCenter,
                       height: 80,
-                      child: FlatButton(
-                        color: Color.fromRGBO(7, 7, 7, 1),
-                        textColor: Color.fromRGBO(198, 193, 124, 1),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(7, 7, 7, 1),
+                          foregroundColor: Color.fromRGBO(198, 193, 124, 1),
+                          padding: EdgeInsets.only(
+                              left: 20, right: 20, top: 8, bottom: 8),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                        ),
                         onPressed: () {},
-                        padding: EdgeInsets.only(
-                            left: 20, right: 20, top: 8, bottom: 8),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
                         child: Text("Next",
                             style: TextStyle(
                               fontSize: 20,
