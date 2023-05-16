@@ -46,7 +46,7 @@ Widget signupWidget() {
           'Don\'t have an account?',
           style: TextStyle(fontFamily: 'Montserrat'),
         ),
-        FlatButton(
+        TextButton(
           onPressed: () {
             print('Sign Up button pressed');
           },

@@ -245,14 +245,14 @@ class _SignPageSixState extends State<SignPageSix>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         fit: StackFit.expand,
         children: <Widget>[
           buildBackgroundImage(),
           SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Stack(
-              overflow: Overflow.visible,
+              clipBehavior: Clip.none,
               fit: StackFit.loose,
               children: stackChildren,
             ),
